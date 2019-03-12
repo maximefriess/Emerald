@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
-  def home
+  def faq
+    render template: "pages/faq"
   end
 end
