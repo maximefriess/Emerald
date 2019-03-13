@@ -1,14 +1,17 @@
 <%= render 'navbars/home_navbar' %>
 <div class="container">
-  <% @listing.photos.each do |photo| %>
+  <% @listing.photos.order(id: :asc).each do |photo| %>
     <div class="row">
-      <div class="col-xs-12">
-        <div class="photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path photo.content %>')">
+      <div class="col-xs-12" style="width: 100%; margin: 10px">
+        <div style="margin-bottom: 4px;">
+          <%= cl_image_tag(photo.content, crop: "fill", width: 355, height: 150) %>
         </div>
-        <div class="form">
-          <% simple_form_for [@listings, @photos] do |f| %>
-            <%= f.input :content %>
-            <%= f.submit class: "btn btn-warning" %>
+        <div>
+          <%= simple_form_for photo do |f| %>
+            <%= f.input :story, label: false, placeholder: 'Add a story BITCH!', class: "story-form" %>
+            <button class="post-btn">
+              <%= f.submit value: "Post", class: "remove-submit-styling" %>
+            </button>
           <% end %>
         </div>
       </div>
@@ -16,5 +19,3 @@
   <% end %>
 </div>
 <%= render 'shared/footer' %>
-
-
