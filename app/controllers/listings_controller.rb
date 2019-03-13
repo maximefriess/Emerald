@@ -1,12 +1,12 @@
 class ListingsController < ApplicationController
   def index
-    @listings = Listing.all
     @title = 'MY HOMES'
+    @listings = Listing.all
   end
 
   def show
-    @listing = Listing.find(params[:id])
     @title = 'MY PROPERTY'
+    @listing = Listing.find(params[:id])
   end
 
 

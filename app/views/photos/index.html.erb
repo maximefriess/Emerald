@@ -1,0 +1,20 @@
+<%= render 'navbars/home_navbar' %>
+<div class="container">
+  <% @listing.photos.each do |photo| %>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path photo.content %>')">
+        </div>
+        <div class="form">
+          <% simple_form_for [@listings, @photos] do |f| %>
+            <%= f.input :content %>
+            <%= f.submit class: "btn btn-warning" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= render 'shared/footer' %>
+
+

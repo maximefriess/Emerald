@@ -10,10 +10,11 @@ puts 'Creating 10 fake listings with pictures...'
   listing.save!
   3.times do
     photo = Photo.new(listing_id: listing.id)
-    url = Faker::Placeholdit.image
+    url = Faker::LoremPixel.image("500x500")
     photo.remote_content_url = url
     photo.save
   end
 end
 
 puts 'Finished!'
+
