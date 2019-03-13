@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 end
 
 
-#  Prefix Verb   URI Pattern                                                                              Controller#Action
+# Prefix Verb   URI Pattern                                                                              Controller#Action
 #          new_user_session GET    /users/sign_in(.:format)                                                                 devise/sessions#new
 #              user_session POST   /users/sign_in(.:format)                                                                 devise/sessions#create
 #      destroy_user_session DELETE /users/sign_out(.:format)                                                                devise/sessions#destroy
@@ -31,16 +31,15 @@ end
 #                      root GET    /                                                                                        listings#index
 #                       faq GET    /faq(.:format)                                                                           pages#faq
 #                      user GET    /users/:id(.:format)                                                                     users#show
-#        edit_listing_photo GET    /listings/:listing_id/photos/:id/edit(.:format)                                          photos#edit
-#             listing_photo PATCH  /listings/:listing_id/photos/:id(.:format)                                               photos#update
-#                           PUT    /listings/:listing_id/photos/:id(.:format)                                               photos#update
+#            listing_photos GET    /listings/:listing_id/photos(.:format)                                                   photos#index
 #                  listings GET    /listings(.:format)                                                                      listings#index
 #                   listing GET    /listings/:id(.:format)                                                                  listings#show
+#                     photo PATCH  /photos/:id(.:format)                                                                    photos#update
+#                           PUT    /photos/:id(.:format)                                                                    photos#update
 #                  messages GET    /messages(.:format)                                                                      messages#index
+#                   message GET    /messages/:id(.:format)                                                                  messages#show
 #        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 # rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
 #        rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
 # update_rails_disk_service PUT    /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
 #      rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)
-
-                                       # active_storage/direct_uploads#create
