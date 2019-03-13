@@ -1,10 +1,14 @@
 .card {
-  height: 175px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  height: 280px;
   background-size: cover !important;
   background-position: center;
   color: white;
   position: relative;
+  font-family: $anton-font;
+  border-radius: 0px;
+  border: none;
+  box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
 }
 .card-share-listing {
   position: absolute;
@@ -18,31 +22,25 @@
   position: absolute;
   top: 10px;
   left: 10px;
+  margin-top: 10px;
+  margin-left: 5px;
 }
 .card-description h2 {
-  font-size: 24px;
+  font-size: 18px;
+  font-family: $anton-font;
+  letter-spacing: 2px;
+
 }
 .card-description p {
   font-size: 14px;
   opacity: 0.7;
   font-weight: lighter;
-}
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index: 2;
-  background: black;
-  opacity: 0;
-}
-.card-link:hover {
-  opacity: 0.1;
+  font-family: $open-sans-font;
+  font-weight: 300;
+  // text-transform: uppercase;
+
 }
 
-.navbar.navbar-6 .navbar-toggler-icon {
-background-image: url('https://mdbootstrap.com/img/svg/hamburger8.svg?color=FFFFFF');
-}
+
 
 

@@ -1,3 +1,4 @@
+
 .post-btn {
   padding: 10px 40px;
   border: none;
@@ -11,4 +12,38 @@
 .remove-submit-styling {
   background: none;
   border: none;
+}
+
+.btn-yellow {
+  color: $black;
+  padding: 8px;
+  border-radius: 0px;
+  background: $yellow;
+  border: 2px solid $yellow;
+  transition: background 0.3s ease;
+  font-family: $anton-font;
+  letter-spacing: 0.05em;
+  font-size: 12px;
+  width: 100px;
+
+.bnt-yellow:hover {
+    background: $dark_yellow;
+  }
+}
+
+.btn-white {
+  color: $black;
+  padding: 8px;
+  border-radius: 0px;
+  background: $white;
+  border: 2px solid $yellow;
+  transition: background 0.3s ease;
+  font-family: $anton-font;
+  letter-spacing: 0.05em;
+  font-size: 12px;
+  width: 100px;
+
+.bnt-yellow:hover {
+    background: $dark_yellow;
+  }
 }
