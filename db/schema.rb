@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_12_152740) do
+ActiveRecord::Schema.define(version: 2019_03_13_101732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,15 +37,9 @@ ActiveRecord::Schema.define(version: 2019_03_12_152740) do
     t.bigint "listing_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "content"
+    t.text "story"
     t.index ["listing_id"], name: "index_photos_on_listing_id"
-  end
-
-  create_table "stories", force: :cascade do |t|
-    t.bigint "photo_id"
-    t.text "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["photo_id"], name: "index_stories_on_photo_id"
   end
 
   create_table "user_listings", force: :cascade do |t|
@@ -74,7 +68,6 @@ ActiveRecord::Schema.define(version: 2019_03_12_152740) do
 
   add_foreign_key "messages", "listings"
   add_foreign_key "photos", "listings"
-  add_foreign_key "stories", "photos"
   add_foreign_key "user_listings", "listings"
   add_foreign_key "user_listings", "users"
 end

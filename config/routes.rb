@@ -4,11 +4,9 @@ Rails.application.routes.draw do
   get "/faq" => "pages#faq"
   resources :users, only: [ :show ]
   resources :listings, only: [ :index, :show ] do
-    resources :photos, only: [ :index ] do
-      resources :stories, only: [ :new, :create, :edit, :update ]
-    end
+    resources :photos, only: [ :index, :new, :create, :edit, :update ]
   end
-  resources :messages, only: [ :index ]
+  resources :messages, only: [ :index, :show ]
 
 end
 
