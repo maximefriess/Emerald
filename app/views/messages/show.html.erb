@@ -5,12 +5,12 @@
   <p><%= @message.content %></p>
 </div>
 <div>
-  <% if @message.doc_type.nil? %>
+  <% #if @message.doc_type.nil? %>
   <%= image_tag 'pdf-file.png', style: 'width: 100%;' %>
-  <%  else %>
-  <%= image_tag @message.doc_type, style: 'width: 100%;' %>
+  <% # else %>
+  <%#= image_tag @message.doc_type, style: 'width: 100%;' %>
   <!-- this will be changed to a cl_inage_tag when we have it -->
-    <% end %>
+    <%# end %>
 </div>
 </div>
 <%= render 'shared/footer' %>
