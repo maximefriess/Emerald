@@ -6,11 +6,15 @@
     </div>
     <%= simple_form_for(current_user) do |f| %>
     <div class="profile-item-container">
-      <%= f.input :photo, label: false %>
+      <div class="carrier-wave-file-field">
+        <%= f.input :photo, label: false %>
+      </div>
       <%= f.input :photo_cache, as: :hidden %>
     </div>
     <div class="profile-item-container">
-      <%= f.submit value: "Add Profile Pic!", class: "submit-btn" %>
+      <div class="submit-image">
+        <%= f.submit value: "Add Profile Pic!", class: "submit-btn" %>
+      </div>
     </div>
     <% end %>
   <% else %>
@@ -20,15 +24,19 @@
 
     <%= simple_form_for(current_user) do |f| %>
     <div class="profile-item-container">
-      <%= f.input :photo, label: false %>
+      <div class="carrier-wave-file-field">
+        <%= f.input :photo, label: false %>
+      </div>
       <%= f.input :photo_cache, as: :hidden %>
     </div>
     <div class="profile-item-container">
-      <%= f.submit value: "Edit your profile pic", class: "submit-btn" %>
+      <div class="submit-image">
+        <%= f.submit value: "Edit Profile Pic!", class: "submit-btn" %>
+      </div>
     </div>
     <% end %>
   <% end %>
-  <div style="border: 1px solid black; padding: 5px; margin: 60px 10px;">
+  <div style="border: 1px solid black; padding: 5px; margin: 140px 10px 40px 10px;">
     <div class="profile-info-container">
       <h2>Name:</h2>
       <p><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></p>
