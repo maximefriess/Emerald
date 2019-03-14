@@ -1,0 +1,29 @@
+<div class="header_main_container">
+  <div class="ellipsis">
+    <i class="fas fa-ellipsis-v"></i>
+  </div>
+  <div class="header_left_container">
+    <div class="header_avatar">
+      <%= render 'shared/avatar' %>
+    </div>
+    <h4><%= @listing.name %></h4>
+    <h5><%= @listing.location %></h5>
+  </div>
+
+  <div class="header_right_container">
+    <div class="header_right_top_container">
+      <div class="header_right_top_left_container">
+        <h2>€25k</h2><h5>revenue</h5>
+      </div>
+      <div class="header_right_top_right_container">
+        <h2>250</h2><h5>stays</h5>
+      </div>
+    </div>
+    <div class="header_right_bottom_container">
+      <div class="header_button">
+        <a class="btn btn-yellow" href="#">Add stories</a>
+      </div>
+        <a class="btn btn-white" href="#">View analytics</a>
+    </div>
+  </div>
+</div>
