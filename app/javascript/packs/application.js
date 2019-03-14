@@ -1,4 +1,4 @@
 import "bootstrap";
-import { backArrow } from './backFunction';
+import { backArrow } from './back_function';
 
 backArrow();
