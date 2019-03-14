@@ -2,7 +2,7 @@
 <div class="profile-container">
   <% if current_user.photo.file.nil? %>
     <div class="profile-item-container">
-      <% image_tag 'profile.png', class: "profile-pic" %>
+      <%= image_tag 'profile.png', class: "profile-pic" %>
     </div>
     <%= simple_form_for(current_user) do |f| %>
     <div class="profile-item-container">
