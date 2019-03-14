@@ -12,13 +12,13 @@ class PhotosController < ApplicationController
   end
 
   def edit
-    @listing = Listing.find(params[:listing_id])
-    @photo = Photo.find(params[:id])
+    update
   end
 
   def update
-    @listing = Listing.find(params[:listing_id])
+    # @listing = Listing.find(params[:id])
     @photo = Photo.find(params[:id])
+    @listing = Listing.find(@photo.listing_id)
     @photo.update(photo_params)
     if @photo.save
       redirect_to listing_photos_path(@listing)
