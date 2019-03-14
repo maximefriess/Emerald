@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  get 'messages/index'
-  get 'messages/show'
   devise_for :users
   root to: 'listings#index'
   get "/faq" => "pages#faq"
-  resources :users, only: [ :show ]
+  resources :users, only: [ :show, :update ]
   resources :listings, only: [ :index, :show ] do
     resources :photos, only: [ :index ]
   end

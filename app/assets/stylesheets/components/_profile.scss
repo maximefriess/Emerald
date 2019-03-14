@@ -1,0 +1,54 @@
+.profile-container {
+  margin-top: 40px;
+  position: relative;
+}
+
+.profile-item-container {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+
+.profile-info-container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: 20px 20px;
+  p {
+    margin-bottom: 7.5px;
+    font-size: 20px;
+  }
+  h2 {
+    font-family: $anton-font;
+    margin-right: 10px;
+    font-size: 20px;
+  }
+}
+
+.profile-pic {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+}
+
+.carrier-wave-file-field {
+  color: $black;
+  padding: 8px;
+  border-radius: 0px;
+  background: $yellow;
+  border: 2px solid $yellow;
+  transition: background 0.3s ease;
+  font-family: $anton-font;
+  letter-spacing: 0.05em;
+  font-size: 12px;
+  width: 90px;
+  height: 40px;
+  position: absolute;
+  left: 143px;
+  margin: 15px 0px;
+}
+
+.submit-image {
+  position: absolute;
+  top: 50px;
+}

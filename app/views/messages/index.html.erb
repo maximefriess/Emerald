@@ -1,2 +1,32 @@
-<h1>Messages#index</h1>
-<p>Find me in app/views/messages/index.html.erb</p>
+<%= render 'navbars/home_navbar' %>
+<div class="container inbox">
+
+
+
+  <% @messages.each do |message| %>
+    <% if @user = current_user %>
+    <%= link_to message_path(message) do %>
+      <div class="inbox-card">
+        <div><%= cl_image_tag message.listing.photos.first.content, class: 'inbox-avatar' %></div>
+        <div class="inbox-message">
+          <h4><%= message.title %></h4>
+          <p><%= message.content.first(35) %>...</p>
+        </div>
+        <div>
+          <% if message.doc_type.nil? %>
+            <%= " " %>
+          <% else %>
+            <%= image_tag 'attachment_light_000000.png', class: 'attch' %>
+            <% end %>
+        </div>
+      </div>
+    <% end %>
+    <% else %>
+    <div>
+      <%= "NO MESSAGES" %>
+      <%= link_to "LOG IN BITCH!", new_user_session, class: 'btn btn-warning' %>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+<%= render 'shared/footer' %>
