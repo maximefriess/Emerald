@@ -1,3 +1,49 @@
 <%= render 'navbars/home_navbar' %>
-<p>SHOW!!!!!</p>
+<div class="profile-container">
+  <% if current_user.photo.file.nil? %>
+    <div class="profile-item-container">
+      <% image_tag 'profile.png', class: "profile-pic" %>
+    </div>
+    <%= simple_form_for(current_user) do |f| %>
+    <div class="profile-item-container">
+      <%= f.input :photo, label: false %>
+      <%= f.input :photo_cache, as: :hidden %>
+    </div>
+    <div class="profile-item-container">
+      <%= f.submit value: "Add Profile Pic!", class: "submit-btn" %>
+    </div>
+    <% end %>
+  <% else %>
+    <div class="profile-item-container">
+      <%= cl_image_tag current_user.photo, class: "profile-pic" %>
+    </div>
+
+    <%= simple_form_for(current_user) do |f| %>
+    <div class="profile-item-container">
+      <%= f.input :photo, label: false %>
+      <%= f.input :photo_cache, as: :hidden %>
+    </div>
+    <div class="profile-item-container">
+      <%= f.submit value: "Edit your profile pic", class: "submit-btn" %>
+    </div>
+    <% end %>
+  <% end %>
+  <div style="border: 1px solid black; padding: 5px; margin: 60px 10px;">
+    <div class="profile-info-container">
+      <h2>Name:</h2>
+      <p><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></p>
+    </div>
+    <div class="profile-info-container">
+      <h2>E-Mail:</h2>
+      <p><%= current_user.email%></p>
+    </div>
+    <div class="profile-info-container">
+      <h2>Phone Number:</h2>
+      <p><%= current_user.phone_number%></p>
+    </div>
+  </div>
+  <div class="profile-item-container">
+    <%= link_to 'Sign Out BITCH!', destroy_user_session_path, method: :delete, class: 'submit-btn' %>
+  </div>
+</div>
 <%= render 'shared/footer' %>
