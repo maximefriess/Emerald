@@ -2,14 +2,26 @@
   <% @listing.photos.each do |photo| %>
     <div class="col-xs-12 col-md-3">
       <%= link_to faq_path, :action => 'go' do %>
+
       <div class="show-card-with-footer">
-        <div class="card">
+        <div class="card card-show">
           <%= cl_image_tag photo.content, height: '280', :gravity=>"auto", :quality => "auto", :crop=>"fill", :background=>"#000000", :effect=>"gradient_fade:22", class: "card-image overlay" %>
           <div class="card-share-listing"><!--Hamburger menu--></div>
         </div>
-        <%= render 'shared/card_show_footer' %>
+        <% if photo.story.nil? %>
+
+        <%= render 'shared/card_show_footer_yellow' %>
+        <% else %>
+        <%= render 'shared/card_show_footer_black' %>
+        <% end %>
       </div>
+
     <% end %>
     </div>
   <% end %>
 </div>
+
+
+
+
+
