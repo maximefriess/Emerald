@@ -36,7 +36,7 @@
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
-  padding: 0 20px;
+  padding: 0;
   h1 {
     font-family: 'Anton', sans-serif;
     font-size: 25px;
@@ -89,3 +89,8 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+.left-arrow {
+  height: 30px;
+}
+
