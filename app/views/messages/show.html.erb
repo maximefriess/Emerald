@@ -1,2 +1,17 @@
-<h1>Messages#show</h1>
-<p>Find me in app/views/messages/show.html.erb</p>
+<%= render 'navbars/home_navbar' %>
+<div class="message-container">
+<div class="message">
+  <h4><%= @message.title %></h3>
+  <p><%= @message.content %></p>
+</div>
+<div>
+  <% if @message.doc_type.nil? %>
+  <%= image_tag 'pdf-file.png', style: 'width: 100%;' %>
+  <%  else %>
+  <%= image_tag @message.doc_type, style: 'width: 100%;' %>
+  <!-- this will be changed to a cl_inage_tag when we have it -->
+    <% end %>
+</div>
+</div>
+<%= render 'shared/footer' %>
+

@@ -18,7 +18,8 @@ puts 'Creating 10 fake listings with pictures...'
     message = Message.new(
       listing_id: listing.id,
       title: Faker::GreekPhilosophers.name,
-      content: Faker::Lorem.paragraph
+      content: Faker::Lorem.paragraph,
+      doc_type: 'pdf_seed.pdf'
       )
     message.save!
   end

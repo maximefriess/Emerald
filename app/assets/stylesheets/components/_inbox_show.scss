@@ -1,0 +1,15 @@
+.message-container {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid $gray;
+}
+.message {
+  margin: 5px;
+  padding: 10px;
+  text-align: left;
+  border: 0.5px solid #bababa;
+  h4 {
+    font-weight: 700;
+    text-decoration: underline;
+  }
+}
