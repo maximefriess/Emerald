@@ -1,10 +1,16 @@
 <div class="footer">
-  <a href="#" ><%= image_tag 'home_white.png', class: "home-icon" %></a>
-  <a href="#"><%= image_tag 'graph_FFFFFF.png', class: "graph-icon" %></a>
+  <%= link_to listings_path do %>
+    <%= image_tag 'home_white.png', class: "home-icon" %>
+  <% end %>
+  <%= link_to listings_path do %>
+    <%= image_tag 'graph_FFFFFF.png', class: "graph-icon" %>
+  <% end %>
   <%= link_to faq_path do %>
     <%= image_tag 'question-mark-draw_white.png', class: "question-icon" %>
   <% end %>
-  <a href="#"><%= image_tag 'user_white.png', class: "user-icon"%></a>
+  <%= link_to user_path(current_user) do %>
+    <%= image_tag 'user_white.png', class: "user-icon" %>
+  <% end %>
 </div>
 
 
