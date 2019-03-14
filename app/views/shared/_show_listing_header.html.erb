@@ -6,8 +6,16 @@
     <div class="header_avatar">
       <%= render 'shared/avatar' %>
     </div>
-    <h4><%= @listing.name %></h4>
-    <h5><%= @listing.location %></h5>
+    <% if @listing.name.size > 15 %>
+      <h4><%= @listing.name.first(12) %>...</h4>
+    <% else %>
+      <h4><%= @listing.name %></h4>
+    <% end %>
+    <% if @listing.location.size > 15 %>
+      <h5><%= @listing.location.first(12) %>...</h5>
+    <% else %>
+      <h5><%= @listing.location %></h5>
+    <% end %>
   </div>
 
   <div class="header_right_container">
