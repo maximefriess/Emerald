@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'messages/index'
-  get 'messages/show'
   devise_for :users
   root to: 'listings#index'
   get "/faq" => "pages#faq"

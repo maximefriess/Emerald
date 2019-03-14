@@ -1,0 +1,55 @@
+.inbox {
+  padding: 10px 15px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+}
+.inbox-card {
+  border: 1px solid #bababa;
+  height: 70px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-family: $open-sans-font;
+  color: $black;
+  a {
+    text-decoration: none;
+  }
+  a:-webkit-any-link {
+    text-decoration: none;
+  }
+  .unread {
+    font-weight: 700;
+    background-color: $white;
+    border: 1px solid $gray;
+  }
+  .read {
+    font-weight: 400;
+    background-color: $light-gray;
+  }
+  h4 {
+    font-size: 15px;
+
+  }
+  p {
+    font-size: 10px;
+    opacity: 0.7;
+  }
+  .attch {
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+  }
+  .inbox-avatar {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin: 5px;
+  }
+  .inbox-message {
+    flex: 1 1 auto;
+    padding: 0 10px;
+  }
+}
