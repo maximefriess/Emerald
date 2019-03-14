@@ -1,7 +1,8 @@
 <%= render 'navbars/home_navbar' %>
 <div class="container inbox">
-
-
+<div class="filter-bar">
+  <%= image_tag 'filter-icon.png' %>
+</div>
 
   <% @messages.each do |message| %>
     <% if @user = current_user %>

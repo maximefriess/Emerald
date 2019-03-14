@@ -1,9 +1,17 @@
 <%= render 'navbars/home_navbar' %>
 <div class="message-container">
-<div class="message">
+  <div class="message-filters">
+    <span class="property-filter"><i class="fa fa-times-circle" aria-hidden="true"></i> Property</span>
+    <span class="doc-filter"><i class="fa fa-times-circle" aria-hidden="true"></i> Document</span>
+  </div>
+<div class="message-title">
+  <%= cl_image_tag @message.listing.photos.first.content, class: 'inbox-avatar' %>
   <h4><%= @message.title %></h3>
-  <p><%= @message.content %></p>
 </div>
+<div class="message-content">
+    <p><%= @message.content %></p>
+</div>
+
 <div>
   <% #if @message.doc_type.nil? %>
   <%= image_tag 'pdf-file.png', style: 'width: 100%;' %>
