@@ -1,10 +1,11 @@
-<%= render 'navbars/home_navbar' %>
+<%= render 'navbars/back_navbar' %>
 <div class="container">
+  <%= render 'shared/stories_header' %>
   <% @listing.photos.order(id: :asc).each do |photo| %>
-    <div class="row">
-      <div class="col-xs-12" style="width: 100%; margin: 10px">
-        <div style="margin-bottom: 4px;">
-          <%= cl_image_tag(photo.content, crop: "fill", width: 355, height: 150) %>
+    <div class="row photos_container">
+      <div class="col-xs-12" style="width: 100%; margin: 10px; justify-content: center;">
+        <div style="margin-bottom: 4px; width:100%;">
+          <%= cl_image_tag(photo.content, crop: "fill", width: 357, height: 150) %>
         </div>
         <div>
           <%= simple_form_for photo do |f| %>

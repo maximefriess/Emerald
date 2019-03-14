@@ -1,0 +1,19 @@
+<div class="navbar-wagon">
+  <!-- Logo -->
+
+  <div class="navbar-wagon-item">
+    <a href="#" id="backBtn">
+      <%= image_tag 'left-arrow-000000.png', class: "left-arrow" %>
+    </a>
+  </div>
+
+  <div class="navbar-wagon-item">
+    <h1 class="m-0 p-0"><%= @title %></h1>
+  </div>
+
+  <div class="navbar-wagon-item">
+    <%= link_to messages_path do %>
+    <%= image_tag 'e-mail-envelope-white.png' %>
+    <% end %>
+  </div>
+</div>
