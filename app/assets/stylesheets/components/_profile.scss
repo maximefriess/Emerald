@@ -6,6 +6,7 @@
 .profile-item-container {
   display: flex;
   justify-content: space-around;
+  position: relative;
 }
 
 .profile-info-container {
@@ -28,4 +29,26 @@
   border-radius: 50%;
   height: 150px;
   width: 150px;
+}
+
+.carrier-wave-file-field {
+  color: $black;
+  padding: 8px;
+  border-radius: 0px;
+  background: $yellow;
+  border: 2px solid $yellow;
+  transition: background 0.3s ease;
+  font-family: $anton-font;
+  letter-spacing: 0.05em;
+  font-size: 12px;
+  width: 90px;
+  height: 40px;
+  position: absolute;
+  left: 144px;
+  margin: 15px 0px;
+}
+
+.submit-image {
+  position: absolute;
+  top: 50px;
 }
