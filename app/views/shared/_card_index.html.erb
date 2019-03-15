@@ -1,18 +1,38 @@
 <div class="row">
   <% @listings.each do |listing| %>
-    <div class="col-xs-12 col-md-3">
-      <%= link_to listing_path(listing), :action => 'go' do %>
-      <div class="card">
-        <%= cl_image_tag listing.photos.first.content, height: '280', :gravity=>"auto", :quality => "auto", :crop=>"fill", :background=>"#000000", :effect=>"gradient_fade:22", class: "card-image overlay" %>
-          <div class="card-description">
-            <div class="card-description-h2"><h2 class="m-0"><%=listing.name%></h2></div>
-            <div class="card-description-p"><p><%=listing.location%></p></div>
-          </div>
-          <div class="card-share-listing"><!--Hamburger menu--></div>
+  <div class="col-xs-12 col-md-3">
+    <div class="card">
+      <%= cl_image_tag listing.photos.first.content, height: '280', :gravity=>"auto", :quality => "auto", :crop=>"fill", :background=>"#000000", :effect=>"gradient_fade:22", class: "card-image overlay" %>
+    <%= link_to listing_path(listing), class: "show-link", :action => 'go' do %>
+      <div class="card-description">
+        <div class="card-description-h2"><h2 class="m-0"><%=listing.name%></h2></div>
+        <div class="card-description-p"><p><%=listing.location%></p></div>
       </div>
     <% end %>
+<button type="button" class="btn btn-info btn-lg card-share-listing" data-toggle="modal" data-target="#myModal"><i class="fas fa-ellipsis-v"></i></button>
     </div>
+  </div>
   <% end %>
+</div>
+
+<!-- Modal, do not delete please -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" id="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Share this Listing</h4>
+      </div>
+      <div class="modal-body">
+        <div class="sharethis-inline-share-buttons"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-yellow" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 

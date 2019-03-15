@@ -8,15 +8,46 @@
   border-radius: 0px;
   border: none;
   box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .card-share-listing {
   position: absolute;
   right: 10px;
   top: 10px;
-  width: 200px;
   border-radius: 50%;
+  background-color: transparent;
+  color: white;
+  border: none;
+  &:focus {
+    box-shadow: none;
+    text-decoration: none;
+  }
+}
+
+.show-link {
+    text-decoration: none;
+    color: white;
+    &:hover {
+    text-decoration: none;
+    color: white;
+    }
+  }
+
+.btn-info:hover {
+    color: #FFFFFF;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.btn-info:not(:disabled):not(.disabled):active:focus, .btn-info:not(:disabled):not(.disabled).active:focus, .show > .btn-info.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+.btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active, .show > .btn-info.dropdown-toggle {
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
 }
 
 .card-description {
@@ -25,7 +56,10 @@
   left: 10px;
   margin-top: 10px;
   margin-left: 5px;
+  height: 90%;
+  width: 80%;
 }
+
 .card-description h2 {
   font-size: 18px;
   font-family: $anton-font;
@@ -40,7 +74,25 @@
   font-weight: 300;
 }
 
-
+#modal-content {
+  margin-top: 30vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #FFFFFF;
+  background-clip: padding-box;
+  border: 1px solid black;
+  border-radius: 0;
+  outline: 0;
+  .modal-header {
+    border-bottom: 1px solid black;
+  }
+  .modal-body {
+    border-bottom: 1px solid black;
+  }
+}
 
 
 
