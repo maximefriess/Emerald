@@ -12,7 +12,7 @@ a {
     text-decoration: none;
   }
 .inbox-card {
-  border: 1px solid #bababa;
+  border: 1px solid $light-gray;
   height: 100px;
   padding: 5px;
   display: flex;
@@ -20,6 +20,7 @@ a {
   width: 100%;
   font-family: $open-sans-font;
   color: $black;
+  margin: 5px 0;
 
   .unread {
     font-weight: 700;
@@ -61,6 +62,7 @@ a {
   flex-flow: nowrap column;
   flex: 1 1 auto;
   position: relative;
+
 }
 .inbox-avatar {
     height: 60px;
