@@ -2,7 +2,7 @@
 <% @listings.each do |listing| %>
   <div class="analytics-card-yellow">
     <div class="analytics-card-content">
-      <h1>@listing.revenue</h1>
+      <h1>@listing.analytics.first.revenue</h1>
       <h2>revenue</h2>
     </div>
     <div class="information-icon">
@@ -12,7 +12,7 @@
 
   <div class="analytics-card-yellow">
     <div class="analytics-card-content">
-      <h1>@listing.bookings</h1>
+      <h1>@listing.analytics.first.bookings</h1>
       <h2>bookings</h2>
     </div>
     <div class="information-icon">
@@ -23,7 +23,7 @@
   <div class="analytics-card-grey-all">
     <div class="analytics-card-grey analytics-card-grey-left">
       <div class="analytics-card-content-grey">
-        <h1>@listing.average_night_rate</h1>
+        <h1>@listing.analytics.first.average_night_rate</h1>
         <h2>average daily rate</h2>
       </div>
       <div class="information-icon">
@@ -33,7 +33,7 @@
 
     <div class="analytics-card-grey">
       <div class="analytics-card-content-grey" id="right">
-        <h1>@listing.occupancy_ratio</h1>
+        <h1>@listing.analytics.first.occupancy_ratio</h1>
         <h2>occupancy rate</h2>
       </div>
       <div class="information-icon">
