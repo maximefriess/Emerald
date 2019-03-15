@@ -1,6 +1,8 @@
 class ListingsController < ApplicationController
   def index
     @title = 'MY HOMES'
+    # @listings = current_user.listings
+    # to be implimented when we have real users and lisitngs
     @listings = Listing.all
   end
 
@@ -8,6 +10,4 @@ class ListingsController < ApplicationController
     @title = 'MY PROPERTY'
     @listing = Listing.find(params[:id])
   end
-
-
 end

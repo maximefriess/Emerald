@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :user_listings
   has_many :listings, through: :user_listings
 
   # Include default devise modules. Others available are:
@@ -8,4 +9,11 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   validates_format_of :first_name, :last_name, with: /\A[a-z]+\z/i
   validates :phone_number, :length => { :minimum => 5, :maximum => 14 }, :format => { with: /[0-9]+/ }
+
+  # def listings
+  #   user_listings.map do |ul|
+  #     ul.listing
+  #   end
+  # end
+
 end
