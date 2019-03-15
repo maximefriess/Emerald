@@ -19,9 +19,9 @@ puts 'Creating 10 fake listings with pictures...'
     message = Message.new(
       listing_id: listing.id,
       title: Faker::Book.title,
-      content: Faker::Lorem.paragraph,
+      content: Faker::Lorem.paragraphs(4),
       doc_type: ['contract', 'invoice', 'other'].sample,
-      attachment: 'pdf-file.png'
+      attachment: ['pdf-file.png', Faker::LoremPixel.image("500x500")].sample
       )
     message.save!
   end
