@@ -5,6 +5,12 @@
   margin-left: auto;
 
 }
+a {
+    text-decoration: none;
+  }
+  a:-webkit-any-link {
+    text-decoration: none;
+  }
 .inbox-card {
   border: 1px solid #bababa;
   height: 80px;
@@ -14,12 +20,7 @@
   width: 100%;
   font-family: $open-sans-font;
   color: $black;
-  a {
-    text-decoration: none;
-  }
-  a:-webkit-any-link {
-    text-decoration: none;
-  }
+
   .unread {
     font-weight: 700;
     background-color: $white;
@@ -42,14 +43,39 @@
     height: 20px;
     margin: 5px;
   }
-  .inbox-avatar {
+  .inbox-message {
+    flex: 1 1 auto;
+    padding: 0 10px;
+  }
+}
+.inbox-avatar {
     height: 50px;
     width: 50px;
     border-radius: 50%;
     margin: 5px;
   }
-  .inbox-message {
-    flex: 1 1 auto;
-    padding: 0 10px;
+
+  .filter-bar {
+    display: flex;
+    border: 0.5px solid $gray;
+    img {
+      margin: 5px;
+      height: 40px;
+    }
+  }
+.inbox-filter-menu {
+  // height: calc(100vh - 180px);
+  display: flex;
+  margin: 0 9px;
+  flex-flow: row wrap;
+  border: 0.5px solid $gray;
+}
+.inbox-filter-cat {
+  height: 50px;
+  padding: 10px;
+  width: 100%;
+  border-bottom: 0.5px solid $light-gray;
+  span {
+    font-size: 18px;
   }
 }
