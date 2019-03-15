@@ -1,16 +1,21 @@
 <%= render 'navbars/back_navbar' %>
 <div class="container inbox">
-  <div class="filter-bar">
+  <div id="filter-bar">
     <%= image_tag 'filter-icon.png' %>
   </div>
-<!--   <div class="hidden inbox-filter-menu">
-    <div class="inbox-filter-cat">Invoice</div>
-    <div class="inbox-filter-cat">Contract</div>
-    <div class="inbox-filter-cat">Other</div>
-  </div> -->
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+  <div class="hidden inbox-filter-menu">
+    <div class="inbox-filter-cat"><p>Invoice</p> <%= image_tag 'check_mark_black.png' %></div>
+    <div class="inbox-filter-cat"><p>Contract</p> <%= image_tag 'check_mark_black.png' %></div>
+    <div class="inbox-filter-cat"><p>Other</p> <%= image_tag 'check_mark_black.png' %></div>
+  </div>
 
   <% @messages.each do |message| %>
-    <%= link_to message_path(message) do %>
+    <%= link_to message_path(message), "data-type" => message.doc_type  do %>
       <div class="inbox-card">
         <div style="display: flex; align-items: center;">
           <%= cl_image_tag message.listing.photos.first.content, class: 'inbox-avatar' %>
@@ -27,10 +32,10 @@
         </div>
 
         <div class="attachment-image">
-          <% if message.attachment.nil? %>
-            <%= " " %>
+          <% if message.attachment == 'invoice' || 'contract' && message.doc_type != 'other' %>
+          <%= image_tag 'attachment_light_000000.png', class: 'attch' %>
           <% else %>
-            <%= image_tag 'attachment_light_000000.png', class: 'attch' %>
+            <%= "" %>
           <% end %>
         </div>
       </div>

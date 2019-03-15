@@ -21,7 +21,7 @@ puts 'Creating 10 fake listings with pictures...'
       title: Faker::Book.title,
       content: Faker::Lorem.paragraph,
       doc_type: ['contract', 'invoice', 'other'].sample,
-      attachment: [Faker::LoremPixel.image("300x500"), nil ].sample
+      attachment: 'pdf-file.png'
       )
     message.save!
   end
