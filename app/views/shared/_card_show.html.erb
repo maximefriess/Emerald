@@ -1,5 +1,5 @@
 <div class="row">
-  <% @listing.photos.each do |photo| %>
+  <% @listing.photos.order(id: :asc).each do |photo| %>
     <div class="col-xs-12 col-md-3">
       <div class="show-card-with-footer">
         <div class="card card-show">
