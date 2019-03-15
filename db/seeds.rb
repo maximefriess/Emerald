@@ -1,4 +1,5 @@
 puts 'Cleaning database...'
+Message.destroy_all
 Listing.destroy_all
 
 puts 'Creating 10 fake listings with pictures...'
@@ -17,9 +18,10 @@ puts 'Creating 10 fake listings with pictures...'
   4.times do
     message = Message.new(
       listing_id: listing.id,
-      title: Faker::GreekPhilosophers.name,
+      title: Faker::Book.title,
       content: Faker::Lorem.paragraph,
-      doc_type: 'pdf_seed.pdf'
+      doc_type: ['contract', 'invoice', 'other'].sample,
+      attachment: [Faker::LoremPixel.image("300x500"), nil ].sample
       )
     message.save!
   end

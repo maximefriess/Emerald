@@ -7,33 +7,33 @@
     <div class="inbox-filter-cat">Invoice</div>
     <div class="inbox-filter-cat">Contract</div>
     <div class="inbox-filter-cat">Other</div>
-
-
   </div>
 
   <% @messages.each do |message| %>
-    <% if @user = current_user %>
     <%= link_to message_path(message) do %>
       <div class="inbox-card">
-        <div><%= cl_image_tag message.listing.photos.first.content, class: 'inbox-avatar' %></div>
-        <div class="inbox-message">
-          <h4><%= message.title %></h4>
-          <p><%= message.content.first(35) %>...</p>
+        <div style="display: flex; align-items: center;">
+          <%= cl_image_tag message.listing.photos.first.content, class: 'inbox-avatar' %>
         </div>
-        <div>
-          <% if message.doc_type.nil? %>
+        <div class="message-body">
+          <div class="message-filters">
+            <span class="property-filter"><i class="fa fa-times-circle" aria-hidden="true"></i> <%= message.listing.name %></span>
+            <span class="doc-filter"><i class="fa fa-times-circle" aria-hidden="true"></i> <%= message.doc_type %></span>
+          </div>
+          <div class="inbox-message">
+            <h4><%= message.title %></h4>
+            <p><%= message.content.first(35) %>...</p>
+          </div>
+        </div>
+
+        <div class="attachment-image">
+          <% if message.attachment.nil? %>
             <%= " " %>
           <% else %>
             <%= image_tag 'attachment_light_000000.png', class: 'attch' %>
-            <% end %>
+          <% end %>
         </div>
       </div>
-    <% end %>
-    <% else %>
-    <div>
-      <%= "NO MESSAGES" %>
-      <%= link_to "LOG IN BITCH!", new_user_session, class: 'btn btn-warning' %>
-    </div>
     <% end %>
   <% end %>
 </div>

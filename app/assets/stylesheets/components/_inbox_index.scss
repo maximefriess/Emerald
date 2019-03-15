@@ -13,10 +13,10 @@ a {
   }
 .inbox-card {
   border: 1px solid #bababa;
-  height: 80px;
-  padding: 10px;
+  height: 100px;
+  padding: 5px;
   display: flex;
-  justify-content: space-between;
+  position: relative;
   width: 100%;
   font-family: $open-sans-font;
   color: $black;
@@ -31,28 +31,43 @@ a {
     background-color: $light-gray;
   }
   h4 {
-    font-size: 15px;
+    font-size: 12px;
 
   }
   p {
-    font-size: 10px;
+    font-size: 9px;
     opacity: 0.7;
+    margin-bottom: 8px
   }
   .attch {
     width: 20px;
     height: 20px;
     margin: 5px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
   }
   .inbox-message {
-    flex: 1 1 auto;
+    // flex: 1 1 auto;
     padding: 0 10px;
+    position: absolute;
+
+    bottom: 10px;
   }
 }
+.message-body {
+  height:100px;
+  display: flex;
+  flex-flow: nowrap column;
+  flex: 1 1 auto;
+  position: relative;
+}
 .inbox-avatar {
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
     margin: 5px;
+    margin-right: 5px
   }
 
   .filter-bar {
@@ -72,10 +87,12 @@ a {
 }
 .inbox-filter-cat {
   height: 50px;
-  padding: 10px;
+  padding: 5px;
   width: 100%;
   border-bottom: 0.5px solid $light-gray;
   span {
-    font-size: 18px;
+    font-size: 12px;
   }
 }
+
+
