@@ -4,6 +4,7 @@
   width: 347px;
   height: 122px;
   margin-right: 10px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,6 +21,7 @@
   align-items: center;
   position: relative;
   padding-left: 25px;
+  margin-top: 10px;
 }
 
 .information-icon {
@@ -52,7 +54,6 @@
   text-transform: uppercase;
   font-weight: lighter;
   color: rgba(0, 0, 0, 0.69);
-  padding-left: 5px;
 }
 
 .analytics-card-content-grey h2 {
@@ -63,6 +64,11 @@
   font-weight: lighter;
   color: rgba(0, 0, 0, 0.69);
   padding-left: 5px;
+}
+
+.analytics-card-grey-all {
+  display: flex;
+  justify-content: space-around;
 }
 
 
