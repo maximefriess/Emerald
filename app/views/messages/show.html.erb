@@ -13,12 +13,13 @@
 </div>
 
 <div>
-  <% if @message.attachment.nil? %>
-  <%= image_tag 'pdf-file.png', style: 'width: 100%;' %>
+  <% if @message.doc_type == 'invoice' || 'contract' && @message.doc_type != 'other' %>
+    <%= image_tag @message.attachment, style: 'width: 100%;', class: 'attch' %>
   <% else %>
-  <%= image_tag @message.attachment, style: 'width: 100%;' %>
-  <!-- this will be changed to a cl_inage_tag when we have it -->
-    <% end %>
+    <%= nil %>
+  <% end %>
+
+  <!-- this will be changed to a cl_image_tag when we have it -->
 </div>
 </div>
 <%= render 'shared/footer' %>

@@ -56,6 +56,9 @@ a {
     bottom: 10px;
   }
 }
+// .hide {
+//   display: none;
+// }
 .message-body {
   height:100px;
   display: flex;
@@ -72,28 +75,40 @@ a {
     margin-right: 5px
   }
 
-  .filter-bar {
+  #filter-bar {
     display: flex;
-    border: 0.5px solid $gray;
+    border: 0.5px solid $light-gray;
     img {
       margin: 5px;
       height: 40px;
     }
   }
 .inbox-filter-menu {
-  // height: calc(100vh - 180px);
   display: flex;
-  margin: 0 9px;
   flex-flow: row wrap;
-  border: 0.5px solid $gray;
+  border: 0.5px solid $light-gray;
+  position: fixed;
+  z-index: 99;
+  background: white;
+  width: 92%;
 }
 .inbox-filter-cat {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
   height: 50px;
-  padding: 5px;
+  padding: 10px;
   width: 100%;
   border-bottom: 0.5px solid $light-gray;
-  span {
+  p {
+    padding: 5px;
+    margin-left: 10px;
     font-size: 12px;
+  }
+  img{
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
   }
 }
 
