@@ -7,27 +7,59 @@
     .hidden {
       display: none;
     }
-
-
   </style>
-  <div class="hidden inbox-filter-menu">
+  <div class="hidden inbox-filter-menu" >
     <ul class="nav nav-tabs" role="tab-list">
-      <li role="presentation" class="active"><a href="#home" data-toggle="tab" role="tab" aria-controls="home">Document Type</a></li>
-      <li role="presentation"><a href="#menu1" aria-controls="menu1" data-toggle="tab" role="tab"> Property</a></li>
+      <li role="presentation" class="active" ><a id="tab" href="#document" data-toggle="tab" role="tab" aria-controls="document">Document Type</a></li>
+      <li role="presentation"><a href="#property" id="tab" aria-controls="property" data-toggle="tab" role="tab"> Property</a></li>
     </ul>
-
-
-    <div class="tab-content">
-      <div role="tab-panel" id="home" class="tab-pane fade in active">
-        <div class="inbox-filter-cat"><p>Invoice</p> <%= image_tag 'check_mark_black.png' %></div>
-        <div class="inbox-filter-cat"><p>Contract</p> <%= image_tag 'check_mark_black.png' %></div>
-        <div class="inbox-filter-cat"><p>Other</p> <%= image_tag 'check_mark_black.png' %></div>
-      </div>
-      <div role="tab-panel" id="menu1" class="tab-pane fade">
-        <% @listings.each do |listing| %>
-        <div class="inbox-filter-cat"><p><%= listing.name %></p> <%= image_tag 'check_mark_black.png' %></div>
-        <% end %>
-      </div>
+    <!-- #class="tab-content" -->
+    <%#= image_tag 'check_mark_black.png' %>
+    <style>
+      .in {
+        display: none;
+      }
+      .active.tab-pane {
+        display: block !important;
+      }
+    </style>
+    <div style="width: 100%" >
+      <div role="tab-panel" id="document" class="tab-pane show fade in active">
+        <form action="/messages" method="get">
+          <div class="inbox-filter-cat">
+            <label for="doc_type">Invoice</label>
+            <div class="round">
+              <input name="doc_type" value="invoice" type="checkbox" id="checkbox1" />
+              <label for="checkbox1"></label>
+            </div>
+          </div>
+          <div class="inbox-filter-cat">
+            <label for="doc_type">Contract</label>
+            <div class="round">
+              <input name="doc_type" value="contract" type="checkbox" id="checkbox2" />
+              <label for="checkbox2"></label>
+            </div>
+          </div>
+          <div class="inbox-filter-cat">
+            <label for="doc_type">Other</label>
+            <div class="round">
+              <input name="doc_type" value="other" type="checkbox" id="checkbox3" />
+              <label for="checkbox3"></label>
+            </div>
+          </div>
+        </div>
+        <div role="tab-panel" class="tab-pane fade in" id="property">
+          <% @listings.each_with_index do |listing, index| %>
+            <div class="inbox-filter-cat">
+              <label for="listing_id"><%= listing.name %></label>
+              <div class="round">
+                <input name="listing_id[]" value="<%= listing.id %>" type="checkbox" id="<%= index %>" />
+                <label for="<%= index %>"></label>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <input type="submit" value="OK" class="inbox-btn-yellow" />
     </div>
 
   </div>
@@ -61,3 +93,4 @@
   <% end %>
 </div>
 <%= render 'shared/footer' %>
+
