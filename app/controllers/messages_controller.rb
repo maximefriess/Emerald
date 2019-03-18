@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   def index
     @title = 'INBOX'
     @messages = Message.all
+    @listings = Listing.all
   end
 
   def show

@@ -7,11 +7,29 @@
     .hidden {
       display: none;
     }
+
+
   </style>
   <div class="hidden inbox-filter-menu">
-    <div class="inbox-filter-cat"><p>Invoice</p> <%= image_tag 'check_mark_black.png' %></div>
-    <div class="inbox-filter-cat"><p>Contract</p> <%= image_tag 'check_mark_black.png' %></div>
-    <div class="inbox-filter-cat"><p>Other</p> <%= image_tag 'check_mark_black.png' %></div>
+    <ul class="nav nav-tabs" role="tab-list">
+      <li role="presentation" class="active"><a href="#home" data-toggle="tab" role="tab" aria-controls="home">Document Type</a></li>
+      <li role="presentation"><a href="#menu1" aria-controls="menu1" data-toggle="tab" role="tab"> Property</a></li>
+    </ul>
+
+
+    <div class="tab-content">
+      <div role="tab-panel" id="home" class="tab-pane fade in active">
+        <div class="inbox-filter-cat"><p>Invoice</p> <%= image_tag 'check_mark_black.png' %></div>
+        <div class="inbox-filter-cat"><p>Contract</p> <%= image_tag 'check_mark_black.png' %></div>
+        <div class="inbox-filter-cat"><p>Other</p> <%= image_tag 'check_mark_black.png' %></div>
+      </div>
+      <div role="tab-panel" id="menu1" class="tab-pane fade">
+        <% @listings.each do |listing| %>
+        <div class="inbox-filter-cat"><p><%= listing.name %></p> <%= image_tag 'check_mark_black.png' %></div>
+        <% end %>
+      </div>
+    </div>
+
   </div>
 
   <% @messages.each do |message| %>
