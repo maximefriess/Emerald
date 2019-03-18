@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :messages, only: [ :index, :show ]
 
   namespace :admin do
-    resources :users, except: [ :show ]
+    resources :users
     resources :listings, except: [ :show ] do
       resources :photos, only: [ :index, :create, :destroy ]
     end

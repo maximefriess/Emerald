@@ -1,6 +1,7 @@
 require 'csv'
 
 puts 'Cleaning database...'
+User.destroy_all
 Message.destroy_all
 Listing.destroy_all
 Booking.destroy_all
