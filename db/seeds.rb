@@ -38,16 +38,6 @@ puts 'Creating 10 fake listings with pictures...'
       )
     message.save!
   end
-  # STATIC ANALYTICS SEEDING
-  # bookings = Booking.new(
-  #   listing_id: listing.id,
-  #   month: Date.today,
-  #   revenue: rand(45000..55000),
-  #   bookings: rand(10..20),
-  #   occupancy_ratio: rand(0.4..0.9),
-  #   average_night_rate: rand(1500..3500),
-  #   )
-  # bookings.save!
 
   listing = Listing.new(
     name:    "Le Rouge Chalet Morzine",
@@ -81,19 +71,6 @@ puts 'Creating 10 fake listings with pictures...'
     message.save!
   end
 
-  # SEED WITH STATIC ANALYTICS
-  # bookings = Booking.new(
-  #   listing_id: listing.id,
-  #   month: Date.today,
-  #   revenue: rand(45000..55000),
-  #   bookings: rand(10..20),
-  #   occupancy_ratio: rand(0.4..0.9),
-  #   average_night_rate: rand(1500..3500),
-  #   )
-  # bookings.save!
-
-# SEED ANALYTICS WITH CSV
-
 filepath = 'db/raw_bookings_data.csv'
 csv_options = { headers: :first_row }
 CSV.foreach(filepath, csv_options) do |row|
@@ -111,9 +88,6 @@ CSV.foreach(filepath, csv_options) do |row|
     booking.save!
   end
 end
-
-
-
 
 
 puts 'Finished!'
