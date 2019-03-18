@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_18_104423) do
+ActiveRecord::Schema.define(version: 2019_03_18_132153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2019_03_18_104423) do
   create_table "bookings", force: :cascade do |t|
     t.string "month"
     t.float "revenue"
-    t.float "bookings"
     t.float "occupancy_ratio"
     t.float "average_night_rate"
     t.bigint "listing_id"

@@ -3,6 +3,7 @@ require 'csv'
 puts 'Cleaning database...'
 Message.destroy_all
 Listing.destroy_all
+Booking.destroy_all
 
 puts 'Creating 10 fake listings with pictures...'
 
@@ -37,15 +38,16 @@ puts 'Creating 10 fake listings with pictures...'
       )
     message.save!
   end
-  bookings = Booking.new(
-    listing_id: listing.id,
-    month: Date.today,
-    revenue: rand(45000..55000),
-    bookings: rand(10..20),
-    occupancy_ratio: rand(0.4..0.9),
-    average_night_rate: rand(1500..3500),
-    )
-  bookings.save!
+  # STATIC ANALYTICS SEEDING
+  # bookings = Booking.new(
+  #   listing_id: listing.id,
+  #   month: Date.today,
+  #   revenue: rand(45000..55000),
+  #   bookings: rand(10..20),
+  #   occupancy_ratio: rand(0.4..0.9),
+  #   average_night_rate: rand(1500..3500),
+  #   )
+  # bookings.save!
 
   listing = Listing.new(
     name:    "Le Rouge Chalet Morzine",
@@ -92,27 +94,23 @@ puts 'Creating 10 fake listings with pictures...'
 
 # SEED ANALYTICS WITH CSV
 
-filepath = 'raw_bookings_data.csv'
+filepath = 'db/raw_bookings_data.csv'
 csv_options = { headers: :first_row }
 CSV.foreach(filepath, csv_options) do |row|
-  booking = Booking.new(
-    year: row['Année'],
-    month: row['Mois'],
-    revenue: row['Accomodation Rev'].to_f,
-    occupancy_ratio: row['Occpancy Ratio'].to_f,
-    average_night_rate: row['Average Night rate 2'].to_f
-    )
+   # ONLY ADD LISTING ID IF REVENUE FIELD IS NOT EMPTY AND IF AN ASSOCIATED LISTING IS FOUND
   csv_listing = row['Properties']
-  if Listing.find(name: csv_listing)
-    booking.listing_id = Listing.find(name: csv_listing)
-    booking.save
-  else
-    next
+  if row['Accomodation Rev'] && Listing.find_by(name: csv_listing)
+    booking = Booking.new(
+      year: row[row.headers.first],
+      month: row['Mois'],
+      revenue: row['Accomodation Rev'].gsub(/[ €]/, '').to_f,
+      occupancy_ratio: row['Occpancy Ratio'].to_f,
+      average_night_rate: row['Average Night rate 2'].to_f
+      )
+    booking.listing_id = Listing.find_by(name: csv_listing).id
+    booking.save!
   end
 end
-
-
-
 
 
 
