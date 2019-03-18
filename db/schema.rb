@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_18_100331) do
+ActiveRecord::Schema.define(version: 2019_03_18_104423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.date "month"
+    t.string "month"
     t.float "revenue"
     t.float "bookings"
     t.float "occupancy_ratio"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_03_18_100331) do
     t.bigint "listing_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "year"
     t.index ["listing_id"], name: "index_bookings_on_listing_id"
   end
 

@@ -1,3 +1,5 @@
+require 'csv'
+
 puts 'Cleaning database...'
 Message.destroy_all
 Listing.destroy_all
@@ -5,7 +7,7 @@ Listing.destroy_all
 puts 'Creating 10 fake listings with pictures...'
 
   listing = Listing.new(
-    name:    "Villa #{Faker::GreekPhilosophers.name}",
+    name:    "Abachi",
     location: Faker::Address.city
   )
   listing.save!
@@ -35,7 +37,7 @@ puts 'Creating 10 fake listings with pictures...'
       )
     message.save!
   end
-  analytics = Analytic.new(
+  bookings = Booking.new(
     listing_id: listing.id,
     month: Date.today,
     revenue: rand(45000..55000),
@@ -43,10 +45,10 @@ puts 'Creating 10 fake listings with pictures...'
     occupancy_ratio: rand(0.4..0.9),
     average_night_rate: rand(1500..3500),
     )
-  analytics.save!
+  bookings.save!
 
   listing = Listing.new(
-    name:    "Villa #{Faker::GreekPhilosophers.name}",
+    name:    "Le Rouge Chalet Morzine",
     location: Faker::Address.city
   )
   listing.save!
@@ -76,15 +78,45 @@ puts 'Creating 10 fake listings with pictures...'
       )
     message.save!
   end
-  analytics = Analytic.new(
-    listing_id: listing.id,
-    month: Date.today,
-    revenue: rand(45000..55000),
-    bookings: rand(10..20),
-    occupancy_ratio: rand(0.4..0.9),
-    average_night_rate: rand(1500..3500),
+
+  # SEED WITH STATIC ANALYTICS
+  # bookings = Booking.new(
+  #   listing_id: listing.id,
+  #   month: Date.today,
+  #   revenue: rand(45000..55000),
+  #   bookings: rand(10..20),
+  #   occupancy_ratio: rand(0.4..0.9),
+  #   average_night_rate: rand(1500..3500),
+  #   )
+  # bookings.save!
+
+# SEED ANALYTICS WITH CSV
+
+filepath = 'raw_bookings_data.csv'
+csv_options = { headers: :first_row }
+CSV.foreach(filepath, csv_options) do |row|
+  booking = Booking.new(
+    year: row['Année'],
+    month: row['Mois'],
+    revenue: row['Accomodation Rev'].to_f,
+    occupancy_ratio: row['Occpancy Ratio'].to_f,
+    average_night_rate: row['Average Night rate 2'].to_f
     )
-  analytics.save!
+  csv_listing = row['Properties']
+  if Listing.find(name: csv_listing)
+    booking.listing_id = Listing.find(name: csv_listing)
+    booking.save
+  else
+    next
+  end
+end
+
+
+
+
+
+
+
 
 puts 'Finished!'
 
