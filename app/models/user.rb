@@ -9,21 +9,5 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   validates_format_of :first_name, :last_name, with: /\A[a-z]+\z/i
   validates :phone_number, :length => { :minimum => 5, :maximum => 14 }, :format => { with: /[0-9]+/ }
-  validate :confirm_password_is_same_password
-  # def listings
-  #   user_listings.map do |ul|
-  #     ul.listing
-  #   end
-  # end
-
-  def password_confirmation=(conf)
-    @password_confirmation= conf
-  end
-
-  def confirm_password_is_same_password
-    if @confirmation_password != password
-      self.errors.add(:password_confirmation, "Must be the same")
-    end
-  end
-
+  validates :password, confirmation: { case_sensitive: true }
 end
