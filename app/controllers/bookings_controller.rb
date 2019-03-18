@@ -1,4 +1,4 @@
-class AnalyticsController < ApplicationController
+class BookingsController < ApplicationController
   def index
     @title = 'ANALYTICS'
     @listing = Listing.find(params[:listing_id])
