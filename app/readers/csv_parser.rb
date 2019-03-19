@@ -38,9 +38,8 @@ class CsvParser
 
   def all_listings
     csv_listing_names = []
-    csv_options = { headers: :first_row }
-    CSV.foreach(@filepath, csv_options) do |row|
-      csv_listing_names << row['Properties']
+    @raw_parsed.each do |booking|
+      csv_listing_names << booking[:name]
     end
     csv_listing_names = csv_listing_names.uniq
     csv_listing_names
