@@ -1,46 +1,45 @@
 class BookingCalculations
-  def initialize(listing, year, month)
-    @listing = listing
-    @year = year
-    @month = month
+  def initialize(bookings)
+    # bookings is an array
+    @bookings = bookings
   end
 
-  def get_all_listings
-    bookings = Booking.all
-    all_listings = bookings.map do |booking|
-      booking.listing.name
-    end
-    all_listings
-  end
-
-  def total_revenue_by_listing
-    listing_id = Listing.where(name: @listing)
-    bookings_by_listing = Booking.where({
-      listing_id: listing_id,
-      month: month,
-      year: year
-      })
+  def revenue
     revenue = 0
-    bookings_by_listing.each do |booking|
-      revenue += booking.revenue
+    @bookings.each do |booking|
+      if booking.revenue
+        revenue += booking.revenue
+      end
     end
-    return revenue
+    revenue = revenue.round / 1000
   end
 
-  def total_revenue_by_user
-    bookings_by_user = Booking.where({
-      listing_id: @listing_id,
-      month: month,
-      year: year
-    })
-    revenue = 0
-    bookings_by_user.each do |booking|
-      revenue += booking.revenue
+  def bookings_count
+    @bookings.length
+  end
+
+  def occupancy
+    occupancy = 0
+    @bookings.each do |booking|
+      if booking.occupancy_ratio
+        occupancy += booking.occupancy_ratio
+      end
     end
-    return revenue
+    occupancy.round
+  end
+
+  def average_rate
+    sum = 0
+    counter = 0
+    @bookings.each do |booking|
+      if booking.average_night_rate
+        sum += booking.average_night_rate
+        counter += 1
+      end
+    end
+    average = (sum / counter).round
   end
 end
-
 
 # MORE EFFICIENT WAY
 # class BookingCalculations
