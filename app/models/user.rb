@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :user_listings
+  has_many :user_listings, dependent: :destroy
   has_many :listings, through: :user_listings
 
   # Include default devise modules. Others available are:
