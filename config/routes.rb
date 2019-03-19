@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'user_listings/index'
+  get 'user_listings/create'
+  get 'user_listings/destroy'
   devise_for :users
   root to: 'listings#index'
   get "/faq" => "pages#faq"
@@ -11,7 +14,9 @@ Rails.application.routes.draw do
   resources :messages, only: [ :index, :show ]
 
   namespace :admin do
-    resources :users
+    resources :users do
+      resources :user_listings, only: [ :index, :create, :destroy ]
+    end
     resources :listings, except: [ :show ] do
       resources :photos, only: [ :index, :create, :destroy ]
     end
