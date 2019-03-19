@@ -3,4 +3,5 @@ class Listing < ApplicationRecord
   has_many :photos, dependent: :destroy
   has_many :messages
   has_many :bookings
+
 end
