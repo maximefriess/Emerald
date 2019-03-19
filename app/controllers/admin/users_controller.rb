@@ -14,7 +14,7 @@ class Admin::UsersController < Admin::BaseController
   def create
     @user = User.create(user_params)
     if @user.save
-      redirect_to admin_users_path
+      redirect_to admin_user_user_listings_path(@user)
     else
       render :new
     end
