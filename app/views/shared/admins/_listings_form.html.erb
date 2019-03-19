@@ -1,0 +1,7 @@
+<%= simple_form_for [:admin, @listing] do |f| %>
+  <%= f.input :display_name %>
+  <%= f.input :name, collection: @listings_array %>
+  <%= f.input :location %>
+  <%= f.input :public_listing_url %>
+  <%= f.submit "Continue to add photos!" %>
+<% end %>

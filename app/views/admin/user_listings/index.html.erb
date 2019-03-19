@@ -7,7 +7,7 @@
           <div style="display: flex; justify-content: space-around, align-items: center, border: 1px solid black;">
                 <%= user_listing.user.first_name.capitalize + " " %>
                 <%= user_listing.user.last_name.capitalize + " |" %>
-                <%= user_listing.listing.name %>
+                <%= user_listing.listing.display_name %>
           </div>
         <% end %>
       <% else %>
