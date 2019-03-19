@@ -6,7 +6,7 @@ Message.destroy_all
 Listing.destroy_all
 Booking.destroy_all
 
-puts 'Creating 10 fake listings with pictures...'
+puts 'Creating 2 fake listings with 3 pictures...'
 
   listing = Listing.new(
     name:    "Abachi",
@@ -72,24 +72,8 @@ puts 'Creating 10 fake listings with pictures...'
     message.save!
   end
 
-filepath = 'db/raw_bookings_data.csv'
-csv_options = { headers: :first_row }
-CSV.foreach(filepath, csv_options) do |row|
-   # ONLY ADD LISTING ID IF REVENUE FIELD IS NOT EMPTY AND IF AN ASSOCIATED LISTING IS FOUND
-  csv_listing = row['Properties']
-  if row['Accomodation Rev'] && Listing.find_by(name: csv_listing)
-    booking = Booking.new(
-      year: row[row.headers.first],
-      month: row['Mois'],
-      revenue: row['Accomodation Rev'].gsub(/[ €]/, '').to_f,
-      occupancy_ratio: row['Occpancy Ratio'].to_f,
-      average_night_rate: row['Average Night rate 2'].to_f
-      )
-    booking.listing_id = Listing.find_by(name: csv_listing).id
-    booking.save!
-  end
-end
-
+puts 'Creating booking instances with parsed data'
+CsvParser.new('db/raw_bookings_data.csv').create_bookings
 
 puts 'Finished!'
 
