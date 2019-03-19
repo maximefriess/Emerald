@@ -20,4 +20,9 @@ class BookingsController < ApplicationController
       @bookings
     end
   end
+
+  def show
+    @listings = Listing.where(@user == current_user)
+    @booking = Booking.find(params[:id])
+  end
 end
