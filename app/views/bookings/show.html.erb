@@ -10,13 +10,13 @@
       display: none;
     }
   </style>
-  <div class="hidden analytics-filter-menu" >
+  <div class="hidden analytics-filter-menu-show" >
     <ul class="nav nav-tabs" role="tab-list">
       <li role="presentation" class="active"><a href="#month" id="tab" aria-controls="month" data-toggle="tab" role="tab"> Month</a></li>
       <li role="presentation"><a href="#year" id="tab" aria-controls="year" data-toggle="tab" role="tab"> Year</a></li>
     </ul>
     <div style="width: 100%" >
-      <form action=" /bookings" method="get">
+      <form action="/bookings" method="get">
         <div role="tab-panel" class="tab-pane fade in" id="month">
           <% @months.each do |month| %>
             <div class="filter-category">
@@ -43,7 +43,7 @@
     </div>
 
   </div>
-    <%= render 'shared/analytics_card' %>
+    <%= render 'shared/show_analytics_card' %>
   </div>
 
 <%= render 'shared/footer' %>
