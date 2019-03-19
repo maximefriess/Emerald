@@ -1,5 +1,7 @@
 class Booking < ApplicationRecord
-  MONTHS = ["janvier", "someothercrazymonth", "février", "mars", "mai", "juin", "juillet", "août", "septembre", "octobre", "décembre", "avril"]
+  MONTHS = [
+    "janvier", "février", "mars", "avril", "mai", "juin",
+    "juillet", "août", "septembre", "octobre", "novembre", "décembre"
+  ]
   belongs_to :listing
-
 end
