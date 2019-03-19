@@ -1,6 +1,6 @@
 <div class="row">
   <% @listing.photos.order(id: :asc).each do |photo| %>
-    <div class="col-xs-12 col-md-3">
+    <div class="col-xs-12 col-md-6">
       <div class="show-card-with-footer">
         <div class="card card-show">
           <%= cl_image_tag photo.content, height: '280', :gravity=>"auto", :quality => "auto", :crop=>"fill", :background=>"#000000", :effect=>"gradient_fade:22", class: "card-image overlay" %>

@@ -1,5 +1,58 @@
 <%= render 'navbars/back_navbar' %>
-  <div class="container">
+  <div class="container inbox">
+    <div id="analytics-filter-bar">
+    <%= image_tag 'filter-icon.png' %>
+  </div>
+    <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+  <div class="hidden analytics-filter-menu" >
+    <ul class="nav nav-tabs" role="tab-list">
+      <li role="presentation" class="active" ><a id="tab" href="#property" data-toggle="tab" role="tab" aria-controls="property">Property</a></li>
+      <li role="presentation"><a href="#month" id="tab" aria-controls="month" data-toggle="tab" role="tab"> Month</a></li>
+      <li role="presentation"><a href="#year" id="tab" aria-controls="year" data-toggle="tab" role="tab"> Year</a></li>
+    </ul>
+    <div style="width: 100%" >
+      <form action=" /bookings" method="get">
+          <div role="tab-panel" class="tab-pane show fade in active" id="property">
+            <% @bookings.each do |booking| %>
+              <div class="filter-category">
+                <label for="listing_id"><%= booking.listing.name %></label>
+                <div class="round">
+                  <input name="listing_id[]" value="<%= booking.listing.id %>" type="checkbox" id="<%= booking.listing.id %>" />
+                  <label for="<%= booking.listing.id %>"></label>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <div role="tab-panel" class="tab-pane fade in" id="month">
+          <% @bookings.each_with_index do |booking, index| %>
+            <div class="filter-category">
+              <label for="month"><%= booking.month %></label>
+              <div class="round">
+                <input name="month[]" value="<%= booking.month %>" type="checkbox" id="<%= booking.month %>" />
+                <label for="<%= booking.month %>"></label>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div role="tab-panel" class="tab-pane fade in" id="year">
+          <% @bookings.each_with_index do |booking, index| %>
+            <div class="filter-category">
+              <label for="year"><%= booking.year %></label>
+              <div class="round">
+                <input name="year[]" value="<%= booking.year %>" type="checkbox" id="<%= booking.year %>" />
+                <label for="<%= booking.year %>"></label>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <input type="submit" value="OK" class="inbox-btn-yellow" />
+    </div>
+
+  </div>
     <%= render 'shared/analytics_card' %>
   </div>
 <%= render 'shared/footer' %>
