@@ -1,6 +1,7 @@
 class Admin::UserListingsController < Admin::BaseController
   def index
     @user = User.find(params[:user_id])
+    @listings = all_listings.map { |x| x.values }
     @user_listing = UserListing.new
     @user_listings = UserListing.where(user_id: @user.id)
   end
@@ -24,5 +25,16 @@ class Admin::UserListingsController < Admin::BaseController
 
   def user_listing_params
     params.require(:user_listing).permit(:listing_id)
+  end
+
+  def all_listings
+    all_listings = []
+    Listing.all.each do |listing|
+      all_listings << {
+        name: listing.name,
+        id: listing.id
+      }
+    end
+    all_listings
   end
 end
