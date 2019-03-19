@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
     else
       @bookings
     end
+    @months = Booking.where(month: params[:month]).uniq
   end
 
   def show

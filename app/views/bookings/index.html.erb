@@ -21,19 +21,19 @@
               <div class="filter-category">
                 <label for="listing_id"><%= listing.name %></label>
                 <div class="round">
-                  <input name="listing_id[]" value="<%= booking.listing.id %>" type="checkbox" id="<%= listing.id %>" />
+                  <input name="listing_id[]" value="<%= listing.id %>" type="checkbox" id="<%= listing.id %>" />
                   <label for="<%= listing.id %>"></label>
                 </div>
               </div>
             <% end %>
           </div>
         <div role="tab-panel" class="tab-pane fade in" id="month">
-          <% @bookings.listings.uniq do |booking| %>
+          <% @bookings.months.each do |month| %>
             <div class="filter-category">
-              <label for="month"><%= booking.month %></label>
+              <label for="month"><%= month %></label>
               <div class="round">
-                <input name="month[]" value="<%= booking.month %>" type="checkbox" id="<%= booking.month %>" />
-                <label for="<%= booking.month %>"></label>
+                <input name="month[]" value="<%= month %>" type="checkbox" id="<%= month %>" />
+                <label for="<%= month %>"></label>
               </div>
             </div>
           <% end %>
