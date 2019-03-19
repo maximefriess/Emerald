@@ -11,11 +11,11 @@
   <div class="hidden analytics-filter-menu" >
     <ul class="nav nav-tabs" role="tab-list">
       <li role="presentation" class="active" ><a id="tab" href="#property" data-toggle="tab" role="tab" aria-controls="property">Property</a></li>
-      <li role="presentation"><a href="#month" id="tab" aria-controls="month" data-toggle="tab" role="tab"> Month</a></li>
-      <li role="presentation"><a href="#year" id="tab" aria-controls="year" data-toggle="tab" role="tab"> Year</a></li>
+      <li role="presentation"><a href="#month" id="tab" aria-controls="month" data-toggle="tab" role="tab">Month</a></li>
+      <li role="presentation"><a href="#year" id="tab" aria-controls="year" data-toggle="tab" role="tab">Year</a></li>
     </ul>
     <div style="width: 100%" >
-      <form action=" /bookings" method="get">
+      <form action="/bookings" method="get">
           <div role="tab-panel" class="tab-pane show fade in active" id="property">
             <% @listings.each do |listing| %>
               <div class="filter-category">

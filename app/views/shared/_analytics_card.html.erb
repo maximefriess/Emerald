@@ -1,8 +1,7 @@
 
   <div class="analytics-card-yellow">
     <div class="analytics-card-content">
-      <%#= @listings.first.bookings.revenue.round %>
-      <h1> 25K €</h1>
+      <h1><%= BookingCalculations.new(@bookings).revenue %>K €</h1>
       <h2>revenue</h2>
     </div>
     <div class="information-icon">
@@ -12,7 +11,7 @@
 
   <div class="analytics-card-yellow">
     <div class="analytics-card-content">
-      <h1>250</h1>
+      <h1><%= BookingCalculations.new(@bookings).bookings_count %></h1>
       <h2>bookings</h2>
     </div>
     <div class="information-icon">
@@ -23,8 +22,7 @@
   <div class="analytics-card-grey-all">
     <div class="analytics-card-grey">
       <div class="analytics-card-content-grey">
-        <%#= @listings.first.bookings.average_night_rate.round %>
-        <h1>200 €</h1>
+        <h1><%= BookingCalculations.new(@bookings).average_rate %>€</h1>
         <h2>average daily rate</h2>
       </div>
       <div class="information-icon">
@@ -34,8 +32,7 @@
 
     <div class="analytics-card-grey">
       <div class="analytics-card-content-grey" id="right">
-        <%#= (@listings.first.bookings.occupancy_ratio * 100).round %>
-        <h1>50 %</h1>
+        <h1><%= BookingCalculations.new(@bookings).occupancy %>%</h1>
         <h2>occupancy rate</h2>
       </div>
       <div class="information-icon">

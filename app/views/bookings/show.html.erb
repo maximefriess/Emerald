@@ -17,25 +17,24 @@
     </ul>
     <div style="width: 100%" >
       <form action=" /bookings" method="get">
-
-        <div role="tab-panel" class="tab-pane fade in active" id="month">
-          <% @bookings.each_with_index do |booking, index| %>
+        <div role="tab-panel" class="tab-pane fade in" id="month">
+          <% @months.each do |month| %>
             <div class="filter-category">
-              <label for="month"><%= booking.month %></label>
+              <label for="month"><%= month %></label>
               <div class="round">
-                <input name="month[]" value="<%= booking.month %>" type="checkbox" id="<%= booking.month %>" />
-                <label for="<%= booking.month %>"></label>
+                <input name="month[]" value="<%= month %>" type="checkbox" id="<%= month %>" />
+                <label for="<%= month %>"></label>
               </div>
             </div>
           <% end %>
         </div>
         <div role="tab-panel" class="tab-pane fade in" id="year">
-          <% @bookings.each_with_index do |booking, index| %>
+          <% @years.each do |year| %>
             <div class="filter-category">
-              <label for="year"><%= booking.year %></label>
+              <label for="year"><%= year %></label>
               <div class="round">
-                <input name="year[]" value="<%= booking.year %>" type="checkbox" id="<%= booking.year %>" />
-                <label for="<%= booking.year %>"></label>
+                <input name="year[]" value="<%= year %>" type="checkbox" id="<%= year %>" />
+                <label for="<%= year %>"></label>
               </div>
             </div>
           <% end %>
