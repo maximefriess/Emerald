@@ -8,10 +8,12 @@ Rails.application.routes.draw do
   resources :users, only: [ :show, :update ]
   resources :listings, only: [ :index, :show ] do
     resources :photos, only: [ :index ]
-    resources :bookings, only: [ :index, :show ]
+    resources :bookings, only: [ :show ]
   end
   resources :photos, only: [ :update ]
   resources :messages, only: [ :index, :show ]
+  resources :bookings, only: [ :index ]
+
 
   namespace :admin do
     resources :users do

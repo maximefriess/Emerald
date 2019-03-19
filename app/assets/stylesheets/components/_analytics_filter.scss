@@ -1,0 +1,17 @@
+#analytics-filter-bar {
+    display: flex;
+    border: 0.5px solid $light-gray;
+    img {
+      margin: 5px;
+      height: 40px;
+    }
+  }
+.analytics-filter-menu {
+  display: flex;
+  flex-flow: row wrap;
+  border: 0.5px solid $light-gray;
+  position: fixed;
+  z-index: 99;
+  background: white;
+  width: 92%;
+}

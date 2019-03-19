@@ -13,43 +13,24 @@
       <li role="presentation" class="active" ><a id="tab" href="#document" data-toggle="tab" role="tab" aria-controls="document">Document Type</a></li>
       <li role="presentation"><a href="#property" id="tab" aria-controls="property" data-toggle="tab" role="tab"> Property</a></li>
     </ul>
-    <!-- #class="tab-content" -->
-    <%#= image_tag 'check_mark_black.png' %>
-    <style>
-      .in {
-        display: none;
-      }
-      .active.tab-pane {
-        display: block !important;
-      }
-      .nav-tabs {
-        border-bottom: none;
-        margin-bottom: 10px;
-        margin-top: 10px;
-      }
-      #tab.active {
-        border-bottom: 2px solid black;
-        opacity: 1;
-      }
-    </style>
     <div style="width: 100%" >
       <div role="tab-panel" id="document" class="tab-pane show fade in active">
         <form action="/messages" method="get">
-          <div class="inbox-filter-cat">
+          <div class="filter-category">
             <label for="doc_type">Invoice</label>
             <div class="round">
               <input name="doc_type" value="invoice" type="checkbox" id="checkbox1" />
               <label for="checkbox1"></label>
             </div>
           </div>
-          <div class="inbox-filter-cat">
+          <div class="filter-category">
             <label for="doc_type">Contract</label>
             <div class="round">
               <input name="doc_type" value="contract" type="checkbox" id="checkbox2" />
               <label for="checkbox2"></label>
             </div>
           </div>
-          <div class="inbox-filter-cat">
+          <div class="filter-category">
             <label for="doc_type">Other</label>
             <div class="round">
               <input name="doc_type" value="other" type="checkbox" id="checkbox3" />
@@ -58,12 +39,12 @@
           </div>
         </div>
         <div role="tab-panel" class="tab-pane fade in" id="property">
-          <% @listings.each_with_index do |listing, index| %>
-            <div class="inbox-filter-cat">
+          <% @listings.each do |listing| %>
+            <div class="filter-category">
               <label for="listing_id"><%= listing.name %></label>
               <div class="round">
-                <input name="listing_id[]" value="<%= listing.id %>" type="checkbox" id="<%= index %>" />
-                <label for="<%= index %>"></label>
+                <input name="listing_id[]" value="<%= listing.id %>" type="checkbox" id="<%= listing.id %>" />
+                <label for="<%= listing.id %>"></label>
               </div>
             </div>
           <% end %>
@@ -81,12 +62,12 @@
         </div>
         <div class="message-body">
           <div class="message-filters">
-            <span class="property-filter"><i class="fa fa-times-circle" aria-hidden="true"></i> <%= message.listing.name %></span>
+            <span class="property-filter"><i class="fa fa-times-circle" aria-hidden="true"></i> <%= message.listing.name.first(15) %></span>
             <span class="doc-filter"><i class="fa fa-times-circle" aria-hidden="true"></i> <%= message.doc_type %></span>
           </div>
           <div class="inbox-message">
             <h4><strong><%= message.title %></strong></h4>
-            <p><%= message.content.first(35) %>...</p>
+            <p><%= message.content.first(30) %>...</p>
           </div>
         </div>
 
