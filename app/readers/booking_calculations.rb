@@ -1,45 +1,52 @@
 class BookingCalculations
-  def initialize(listing, year, month)
-    @listing = listing
-    @year = year
-    @month = month
+  def initialize
   end
 
-  def get_all_listings
-    bookings = Booking.all
-    all_listings = bookings.map do |booking|
-      booking.listing.name
-    end
-    all_listings
-  end
-
-  def total_revenue_by_listing
-    listing_id = Listing.where(name: @listing)
-    bookings_by_listing = Booking.where({
-      listing_id: listing_id,
-      month: month,
-      year: year
-      })
+  def revenue_month(bookings, month, year)
+    # bookings is an array for example listing.bookings
     revenue = 0
-    bookings_by_listing.each do |booking|
-      revenue += booking.revenue
+    bookings.each do |booking|
+      if booking.revenue && booking.month == month && booking.year == year
+        revenue += booking.revenue
+      end
     end
-    return revenue
+    revenue
   end
 
-  def total_revenue_by_user
-    bookings_by_user = Booking.where({
-      listing_id: @listing_id,
-      month: month,
-      year: year
-    })
+  def revenue_year(bookings, year)
+    # bookings is an array for example listing.bookings
     revenue = 0
-    bookings_by_user.each do |booking|
-      revenue += booking.revenue
+    bookings.each do |booking|
+      if booking.revenue && booking.year == year
+        revenue += booking.revenue
+      end
     end
-    return revenue
+    revenue
+  end
+
+  def bookings_month(bookings, month, year)
+    counter = 0
+    bookings.each do |booking|
+      if booking.month == month && booking.year == year
+        counter += 1
+      end
+    end
+    counter
+  end
+
+  def bookings_year(bookings, year)
+    counter = 0
+    bookings.each do |booking|
+      if booking.year == year
+        counter += 1
+      end
+    end
+    counter
   end
 end
+
+Bo
+
 
 
 # MORE EFFICIENT WAY
