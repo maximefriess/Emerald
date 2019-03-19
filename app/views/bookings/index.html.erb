@@ -28,7 +28,7 @@
             <% end %>
           </div>
         <div role="tab-panel" class="tab-pane fade in" id="month">
-          <% @bookings.months.each do |month| %>
+          <% @months.each do |month| %>
             <div class="filter-category">
               <label for="month"><%= month %></label>
               <div class="round">
@@ -39,12 +39,12 @@
           <% end %>
         </div>
         <div role="tab-panel" class="tab-pane fade in" id="year">
-          <% @bookings.each.uniq do |booking| %>
+          <% @years.each do |year| %>
             <div class="filter-category">
-              <label for="year"><%= booking.year %></label>
+              <label for="year"><%= year %></label>
               <div class="round">
-                <input name="year[]" value="<%= booking.year %>" type="checkbox" id="<%= booking.year %>" />
-                <label for="<%= booking.year %>"></label>
+                <input name="year[]" value="<%= year %>" type="checkbox" id="<%= year %>" />
+                <label for="<%= year %>"></label>
               </div>
             </div>
           <% end %>

@@ -19,11 +19,18 @@ class BookingsController < ApplicationController
     else
       @bookings
     end
-    @months = Booking.where(month: params[:month]).uniq
+    @years = build_years
+    @months = Booking::MONTHS
   end
 
   def show
     @listings = Listing.where(@user == current_user)
     @booking = Booking.find(params[:id])
+  end
+
+  private
+
+  def build_years
+    (2017..(Date.today.year + 2)).to_a
   end
 end
