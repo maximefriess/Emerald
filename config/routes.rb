@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'user_listings/index'
-  get 'user_listings/create'
-  get 'user_listings/destroy'
   devise_for :users
   root to: 'listings#index'
   get "/faq" => "pages#faq"

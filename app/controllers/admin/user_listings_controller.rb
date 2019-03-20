@@ -18,7 +18,13 @@ class Admin::UserListingsController < Admin::BaseController
   end
 
   def destroy
-    @user_listing = UserListing.find(params[])
+    @user = User.find(params[:user_id])
+    @user_listing = UserListing.find(params[:id])
+    if @user_listing.destroy
+      redirect_to admin_user_user_listings(@user)
+    else
+      flash[:notice] = "Couldn't destroy user listing!"
+    end
   end
 
   private
@@ -31,7 +37,7 @@ class Admin::UserListingsController < Admin::BaseController
     all_listings = []
     Listing.all.each do |listing|
       all_listings << {
-        name: listing.name,
+        name: listing.display_name,
         id: listing.id
       }
     end

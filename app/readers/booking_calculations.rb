@@ -37,9 +37,14 @@ class BookingCalculations
         counter += 1
       end
     end
-    average = (sum / counter).round
+    if counter = 0
+      return 0
+    else
+      average = (sum / counter).round
+    end
   end
 end
+
 
 # MORE EFFICIENT WAY
 # class BookingCalculations
