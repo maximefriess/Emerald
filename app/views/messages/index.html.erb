@@ -41,7 +41,7 @@
         <div role="tab-panel" class="tab-pane fade in" id="property">
           <% @listings.each do |listing| %>
             <div class="filter-category">
-              <label for="listing_id"><%= listing.name %></label>
+              <label for="listing_id"><%= listing.display_name %></label>
               <div class="round">
                 <input name="listing_id[]" value="<%= listing.id %>" type="checkbox" id="<%= listing.id %>" />
                 <label for="<%= listing.id %>"></label>

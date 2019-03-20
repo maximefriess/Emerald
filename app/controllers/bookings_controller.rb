@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :create_objects
   def index
+    @listings = Listing.all
     if params[:listing_id]
       @bookings = Booking.where(listing_id: params[:listing_id])
     else
@@ -18,10 +19,6 @@ class BookingsController < ApplicationController
     end
   end
 
-  def show
-    @booking = Booking.find(params[:id])
-  end
-
   private
 
   def build_years
@@ -31,7 +28,6 @@ class BookingsController < ApplicationController
   def create_objects
     @years = build_years
     @months = Booking::MONTHS
-    @listings = Listing.all
     @title = 'ANALYTICS'
   end
 end
