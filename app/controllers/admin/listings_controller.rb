@@ -1,4 +1,4 @@
-require_relative '../../readers/csv_parser'
+require_relative '../../writers/csv_parser'
 class Admin::ListingsController < Admin::BaseController
   def index
     @listings = Listing.all
