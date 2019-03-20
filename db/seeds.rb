@@ -9,8 +9,9 @@ Booking.destroy_all
 puts 'Creating 2 fake listings with 3 pictures...'
 
   listing = Listing.new(
-    display_name:    "Abachi",
-    location: Faker::Address.city
+    display_name:    "Chalet Abachi",
+    name: "Abachi",
+    location: "Les Gets"
   )
   listing.save!
 
@@ -41,8 +42,9 @@ puts 'Creating 2 fake listings with 3 pictures...'
   end
 
   listing = Listing.new(
-    display_name:    "Le Rouge Chalet Morzine",
-    location: Faker::Address.city
+    display_name:    "Chalet Le Rouge",
+    name: "Le Rouge Chalet Morzine",
+    location: "Morzine"
   )
   listing.save!
 
