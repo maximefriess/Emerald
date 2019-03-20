@@ -15,3 +15,20 @@
   background: white;
   width: 92%;
 }
+#analytics-filter-bar-show {
+    display: flex;
+    border: 0.5px solid $light-gray;
+    img {
+      margin: 5px;
+      height: 40px;
+    }
+  }
+.analytics-filter-menu-show {
+  display: flex;
+  flex-flow: row wrap;
+  border: 0.5px solid $light-gray;
+  position: fixed;
+  z-index: 99;
+  background: white;
+  width: 92%;
+}

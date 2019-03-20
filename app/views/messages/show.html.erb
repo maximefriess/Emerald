@@ -1,7 +1,7 @@
 <%= render 'navbars/back_navbar' %>
 <div class="message-container">
   <div class="message-filters">
-    <span class="property-filter"><i class="fa fa-times-circle" aria-hidden="true"></i> <%= @message.listing.name %></span>
+    <span class="property-filter"><i class="fa fa-times-circle" aria-hidden="true"></i> <%= @message.listing.display_name.first(15) %></span>
     <span class="doc-filter"><i class="fa fa-times-circle" aria-hidden="true"></i> <%= @message.doc_type %></span>
   </div>
 <div class="message-title">

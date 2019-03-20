@@ -19,21 +19,6 @@ class BookingsController < ApplicationController
     end
   end
 
-  def show
-    @listing = Listing.find(params[:listing_id])
-    @bookings = Booking.where(listing_id: @listing.id)
-    if params[:month]
-      @booking = @booking.where(month: params[:month])
-    else
-      @booking = Booking.all
-    end
-    if params[:year]
-      @booking = @booking.where(year: params[:year])
-    else
-      @booking
-    end
-  end
-
   private
 
   def build_years
