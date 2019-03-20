@@ -16,10 +16,13 @@
 
       <%= simple_form_for [:admin, @user, @user_listing] do |f| %>
       <%= f.input :listing_id, collection: @listings %>
-      <%= f.submit "Add this listing to user" %>
+      <button>
+        <%= f.submit "Add this listing to user" %>
+      </button>
       <% end %>
-
-      <%= link_to "Go back to Users page", admin_users_path, :action => 'go' %>
+      <button>
+        <%= link_to "Go back to Users page", admin_users_path, :action => 'go' %>
+      </button>
     </div>
   </div>
 </div>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { sessions: "sessions"}
   root to: 'listings#index'
+  get "/admin" => "pages#admin"
   get "/faq" => "pages#faq"
   resources :users, only: [ :show, :update ]
   resources :listings, only: [ :index, :show ] do

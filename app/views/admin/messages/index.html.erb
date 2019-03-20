@@ -19,7 +19,12 @@
       <% else %>
         <h2>Send a new message</h2>
       <% end %>
-      <%= link_to 'Send a new message', new_admin_message_path %>
+      <button>
+        <%= link_to 'Send a new message', new_admin_message_path %>
+      </button>
+      <button>
+        <%= link_to "Go back to Admin panel", admin_path, :action => 'go'%>
+      </button>
     </div>
   </div>
 </div>
