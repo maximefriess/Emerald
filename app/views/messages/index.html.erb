@@ -10,7 +10,7 @@
   </style>
   <div class="hidden inbox-filter-menu" >
     <ul class="nav nav-tabs" role="tab-list">
-      <li role="presentation" class="active" ><a id="tab" href="#document" data-toggle="tab" role="tab" aria-controls="document">Document Type</a></li>
+      <li role="presentation" class="active" ><a id="tab" href="#document" data-toggle="tab" class="active" role="tab" aria-controls="document">Document Type</a></li>
       <li role="presentation"><a href="#property" id="tab" aria-controls="property" data-toggle="tab" role="tab"> Property</a></li>
     </ul>
     <div style="width: 100%" >
@@ -19,21 +19,21 @@
           <div class="filter-category">
             <label for="doc_type">Invoice</label>
             <div class="round">
-              <input name="doc_type" value="invoice" type="checkbox" id="checkbox1" />
+              <input name="doc_type" value="invoice" type="checkbox" id="checkbox1" <%= 'checked' if params[:doc_type]&.include?('invoice') %> />
               <label for="checkbox1"></label>
             </div>
           </div>
           <div class="filter-category">
             <label for="doc_type">Contract</label>
             <div class="round">
-              <input name="doc_type" value="contract" type="checkbox" id="checkbox2" />
+              <input name="doc_type" value="contract" type="checkbox" id="checkbox2" <%= 'checked' if params[:doc_type]&.include?('contract') %> />
               <label for="checkbox2"></label>
             </div>
           </div>
           <div class="filter-category">
             <label for="doc_type">Other</label>
             <div class="round">
-              <input name="doc_type" value="other" type="checkbox" id="checkbox3" />
+              <input name="doc_type" value="other" type="checkbox" id="checkbox3" <%= 'checked' if params[:doc_type]&.include?('other') %> />
               <label for="checkbox3"></label>
             </div>
           </div>
@@ -41,9 +41,9 @@
         <div role="tab-panel" class="tab-pane fade in" id="property">
           <% @listings.each do |listing| %>
             <div class="filter-category">
-              <label for="listing_id"><%= listing.name %></label>
+              <label for="listing_id"><%= listing.display_name %></label>
               <div class="round">
-                <input name="listing_id[]" value="<%= listing.id %>" type="checkbox" id="<%= listing.id %>" />
+                <input name="listing_id[]" value="<%= listing.id %>" type="checkbox" id="<%= listing.id %>" <%= 'checked' if params[:listing_id]&.include?(listing.id.to_s) %> />
                 <label for="<%= listing.id %>"></label>
               </div>
             </div>
@@ -66,7 +66,7 @@
             <span class="doc-filter"><i class="fa fa-times-circle" aria-hidden="true"></i> <%= message.doc_type %></span>
           </div>
           <div class="inbox-message">
-            <h4><strong><%= message.title %></strong></h4>
+            <h4><strong><%= message.title.first(40) %></strong></h4>
             <p><%= message.content.first(30) %>...</p>
           </div>
         </div>
