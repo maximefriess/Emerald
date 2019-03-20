@@ -16,6 +16,23 @@
   margin-bottom: 10px;
   margin-top: 10px;
 }
+#month {
+  max-height: 300px;
+  overflow: scroll !important;
+}
+
+#property {
+  max-height: 300px;
+  overflow: scroll !important;
+}
+#documents {
+  max-height: 300px;
+  overflow: scroll !important;
+}
+#years {
+  max-height: 300px;
+  overflow: scroll !important;
+}
 #tab.active {
   border-bottom: 2px solid $yellow;
   opacity: 1;

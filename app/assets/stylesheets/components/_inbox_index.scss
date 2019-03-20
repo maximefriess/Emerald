@@ -5,12 +5,9 @@
   margin-left: auto;
 
 }
-
 .hidden {
   display: none !important;
 }
-
-
 a {
     text-decoration: none;
   }
@@ -27,16 +24,6 @@ a {
   font-family: $open-sans-font;
   color: $black;
   margin: 5px 0;
-
-  .unread {
-    font-weight: 700;
-    background-color: $white;
-    border: 1px solid $gray;
-  }
-  .read {
-    font-weight: 400;
-    background-color: $light-gray;
-  }
   h4 {
     font-size: 15px;
 
@@ -44,7 +31,8 @@ a {
   p {
     font-size: 10px;
     opacity: 0.7;
-    margin-bottom: 8px
+    margin-bottom: 8px;
+    text-align: right;
   }
   .attch {
     width: 20px;
@@ -55,10 +43,9 @@ a {
     right: 10px;
   }
   .inbox-message {
-    // flex: 1 1 auto;
-    padding: 0 10px;
-    position: absolute;
-    bottom: 13px;
+    flex: 1 1 auto;
+    padding: 10px;
+    left: 10px;
   }
 }
 .message-body {
@@ -67,13 +54,4 @@ a {
   flex-flow: nowrap column;
   flex: 1 1 auto;
   position: relative;
-
 }
-.inbox-avatar {
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    margin: 5px;
-    margin-right: 5px
-  }
-
