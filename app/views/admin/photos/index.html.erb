@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <% @listing.photos.each do |photo| %>
+    <div class="col-xs-12 col-lg-4" style="margin-bottom: 10px;">
+      <%= cl_image_tag photo.content, :gravity=>"auto", :height=>300, :quality=>"auto", :width=>300, :crop=>"fill"  %>
+    </div>
+    <% end %>
+    <div class="col-xs-12 col-md-6">
+      <div class="form">
+      <%= simple_form_for [:admin, @listing, @photo] do |f| %>
+        <%= f.file_field :content %>
+        <%= f.input :content_cache, as: :hidden %>
+        <%= f.submit 'Add image' %>
+      <% end %>
+      </div>
+      <div>
+        <%= link_to 'See listings', admin_listings_path %>
+      </div>
+    </div>
+  </div>
+</div>

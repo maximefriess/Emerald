@@ -12,7 +12,7 @@ class Admin::ListingsController < Admin::BaseController
   def create
     @listing = Listing.new(listing_params)
     if @listing.save
-      redirect_to admin_listings_path
+      redirect_to admin_listing_photos_path(@listing)
     else
       render :new
     end
@@ -26,7 +26,7 @@ class Admin::ListingsController < Admin::BaseController
   def update
     @listing = Listing.find(params[:id])
     if @listing.update(listing_params)
-      redirect_to admin_listings_path
+      redirect_to admin_listing_photos_path(@listing)
     else
       render :edit
     end
