@@ -31,17 +31,6 @@ puts 'Creating 2 fake listings with 3 pictures...'
     url = "https://emerald.projtest.info/images/uploads/a5156034e6b4a19f8f5feaae5802f617.jpg"
     photo.remote_content_url = url
     photo.save!
-
-  4.times do
-    message = Message.new(
-      listing_id: listing.id,
-      title: Faker::Marketing.buzzwords,
-      content: [Faker::Hipster.paragraph(3), Faker::Hipster.paragraph(2)].sample,
-      doc_type: ['contract', 'invoice', 'other'].sample
-      )
-    # url = 'https://drive.google.com/file/d/1ylKQHvRq5pFjECI9PrkuD8MHidWydOR9/view?usp=sharing'
-    # message.attachment.remote_content_url = url
-    message.save!
   end
 
   listing = Listing.new(
@@ -67,17 +56,6 @@ puts 'Creating 2 fake listings with 3 pictures...'
     url = "https://emerald.projtest.info/images/uploads/ed11346a9cea7ba0bbd54ed4722fa8bf.jpg"
     photo.remote_content_url = url
     photo.save!
-
-  4.times do
-    message = Message.new(
-      listing_id: listing.id,
-      title: Faker::Marketing.buzzwords,
-      content: [Faker::Hipster.paragraph(5), Faker::Hipster.paragraph(1)].sample,
-      doc_type: ['contract', 'invoice', 'other'].sample
-      )
-    # url = 'https://drive.google.com/file/d/1ylKQHvRq5pFjECI9PrkuD8MHidWydOR9/view?usp=sharing'
-    # message.attachment.remote_content_url = url
-    message.save!
   end
 
 puts 'Creating booking instances with parsed data'
