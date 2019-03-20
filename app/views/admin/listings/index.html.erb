@@ -29,9 +29,12 @@
             </div>
         </div>
       <% end %>
-      <div>
+      <button>
         <%= link_to "Add a new listing", new_admin_listing_path %>
-      </div>
+      </button>
+      <button>
+        <%= link_to "Go back to Admin panel", admin_path, :action => 'go'%>
+      </button>
     </div>
   </div>
 </div>
