@@ -9,5 +9,6 @@ class ListingsController < ApplicationController
   def show
     @title = 'MY PROPERTY'
     @listing = Listing.find(params[:id])
+    @bookings = Booking.where(listing_id: @listing.id)
   end
 end
