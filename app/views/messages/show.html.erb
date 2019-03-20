@@ -16,7 +16,9 @@
     <% if @message.attachment.nil? %>
       <%= nil %>
     <% else %>
-      <%= cl_image_tag @message.attachment.file, style: 'width: 100%;', class: 'attch' %>
+    <%= link_to @message.attachment.url, target: "_blank" do %>
+      <%= image_tag @message.attachment.url(:thumb) %>
+    <% end %>
     <% end %>
   </div>
 </div>
