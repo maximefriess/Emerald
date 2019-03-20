@@ -1,3 +1,5 @@
 class Message < ApplicationRecord
   belongs_to :listing
+  mount_uploader :attachment, PhotoUploader
+  validates :title, :content, :doc_type, presence: true
 end
