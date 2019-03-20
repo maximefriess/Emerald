@@ -31,7 +31,6 @@ puts 'Creating 2 fake listings with 3 pictures...'
     url = "https://emerald.projtest.info/images/uploads/a5156034e6b4a19f8f5feaae5802f617.jpg"
     photo.remote_content_url = url
     photo.save!
-  end
 
   listing = Listing.new(
     display_name:    "Chalet Le Rouge",
@@ -57,7 +56,6 @@ puts 'Creating 2 fake listings with 3 pictures...'
     photo.remote_content_url = url
     photo.save!
 
-  end
 
 puts 'Creating booking instances with parsed data'
 CsvParser.new('db/raw_bookings_data.csv').create_bookings
