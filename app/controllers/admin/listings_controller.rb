@@ -1,3 +1,4 @@
+require_relative '../../readers/csv_parser'
 class Admin::ListingsController < Admin::BaseController
   def index
     @listings = Listing.all
@@ -5,7 +6,7 @@ class Admin::ListingsController < Admin::BaseController
 
   def new
     @listing = Listing.new
-    @listings_array = all_listings.map { |x| x.values }
+    @listings_array = CsvParser.new('db/raw_bookings_data.csv').all_listings.uniq
   end
 
   def create
@@ -19,7 +20,7 @@ class Admin::ListingsController < Admin::BaseController
 
   def edit
     @listing = Listing.find(params[:id])
-    @listings_array = all_listings.map { |x| x.values }
+    @listings_array = CsvParser.new('db/raw_bookings_data.csv').all_listings.uniq
   end
 
   def update
@@ -44,17 +45,6 @@ class Admin::ListingsController < Admin::BaseController
 
   def listing_params
     params.require(:listing).permit(:display_name, :name, :location, :public_listing_url)
-  end
-
-  def all_listings
-    all_listings = []
-    Listing.all.each do |listing|
-      all_listings << {
-        name: listing.display_name,
-        id: listing.id
-      }
-    end
-    all_listings
   end
 end
 
