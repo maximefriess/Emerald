@@ -32,3 +32,8 @@
   background: white;
   width: 92%;
 }
+
+#month {
+  max-height: 250px;
+  overflow: scroll !important;
+}

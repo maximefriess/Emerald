@@ -1,7 +1,7 @@
 .message-container {
   margin: 10px;
   padding: 10px;
-  border: 1px solid $gray;
+  border: 0.5px solid $light-gray;
 }
 
 
@@ -34,7 +34,7 @@
 }
 
 .property-filter {
-  padding: 4px;
+  padding: 4px 6px;
   background-color: $yellow;
   margin: 5px;
   border-radius: 5px;
@@ -44,7 +44,7 @@
 }
 
 .doc-filter {
-  padding: 4px;
+  padding: 4px 6px;
   border-radius: 5px;
   background-color: #81D2C7;
   margin: 5px;

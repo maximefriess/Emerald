@@ -7,7 +7,7 @@
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 
@@ -58,13 +58,9 @@ a {
     // flex: 1 1 auto;
     padding: 0 10px;
     position: absolute;
-
-    bottom: 10px;
+    bottom: 13px;
   }
 }
-// .hide {
-//   display: none;
-// }
 .message-body {
   height:100px;
   display: flex;
