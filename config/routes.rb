@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: "sessions"}
+  devise_for :users, controllers: { sessions: "sessions"}, skip: :registration
   root to: 'listings#index'
   get "/admin" => "pages#admin"
   get "/faq" => "pages#faq"
