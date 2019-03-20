@@ -3,16 +3,6 @@
     <div id="analytics-filter-bar">
     <%= image_tag 'filter-icon.png' %>
   </div>
-    <style>
-    .hidden {
-      display: none;
-    }
-
-    #month {
-      max-height: 300px;
-      overflow: scroll;
-    }
-  </style>
   <div class="hidden analytics-filter-menu" >
     <ul class="nav nav-tabs" role="tab-list">
       <li role="presentation" class="active" ><a id="tab" href="#property" data-toggle="tab" role="tab" aria-controls="property" class="active">Property</a></li>
@@ -48,7 +38,7 @@
             <div class="filter-category">
               <label for="year"><%= year %></label>
               <div class="round">
-                <input name="year[]" value="<%= year %>" type="checkbox" id="<%= year %>" <%= 'checked' if params[:year]&.include?(year) %> />
+                <input name="year[]" value="<%= year %>" type="checkbox" id="<%= year %>" <%= 'checked' if params[:year]&.include?(year.to_s) %> />
                 <label for="<%= year %>"></label>
               </div>
             </div>
