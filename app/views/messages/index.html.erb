@@ -3,11 +3,6 @@
   <div id="filter-bar">
     <%= image_tag 'filter-icon.png' %>
   </div>
-  <style>
-    .hidden {
-      display: none;
-    }
-  </style>
   <div class="hidden inbox-filter-menu" >
     <ul class="nav nav-tabs" role="tab-list">
       <li role="presentation" class="active" ><a id="tab" href="#document" data-toggle="tab" class="active" role="tab" aria-controls="document">Document Type</a></li>
@@ -66,7 +61,7 @@
             <span class="doc-filter"><i class="fa fa-times-circle" aria-hidden="true"></i> <%= message.doc_type %></span>
           </div>
           <div class="inbox-message">
-            <h4><strong><%= message.title.first(40) %></strong></h4>
+            <h4><strong><%= message.title.first(40).capitalize %></strong></h4>
             <p><%= message.content.first(30) %>...</p>
           </div>
         </div>
