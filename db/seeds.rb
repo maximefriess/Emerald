@@ -62,6 +62,18 @@ puts 'Creating 2 fake listings with 3 pictures...'
 puts 'Creating booking instances with parsed data'
 CsvParser.new('db/raw_bookings_data.csv').create_bookings
 
+puts 'Creating admin user'
+
+  User.create(
+    first_name: "emerald",
+    last_name: "admin",
+    email: "admin@emeraldstay.com",
+    password: "password",
+    phone_number: "234234234",
+    admin: true
+    )
+
+
 puts 'Finished!'
 
 
