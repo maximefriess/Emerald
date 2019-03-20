@@ -21,10 +21,10 @@
   <div class="header_right_container">
     <div class="header_right_top_container">
       <div class="header_right_top_left_container">
-        <h2>€25k</h2><h5>revenue</h5>
+        <h2>€<%= BookingCalculations.new(@bookings).revenue %>k</h2><h5>revenue</h5>
       </div>
       <div class="header_right_top_right_container">
-        <h2>250</h2><h5>stays</h5>
+        <h2><%= BookingCalculations.new(@bookings).bookings_count %></h2><h5>stays</h5>
       </div>
     </div>
     <div class="header_right_bottom_container">
