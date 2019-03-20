@@ -4,6 +4,9 @@
     <div class="col-xs-12 col-lg-4" style="margin-bottom: 10px;">
       <%= cl_image_tag photo.content, :gravity=>"auto", :height=>300, :quality=>"auto", :width=>300, :crop=>"fill"  %>
     </div>
+    <div>
+      <%= link_to "Delete", admin_listing_photo_path(photo.listing_id, photo), :method => 'delete' %>
+    </div>
     <% end %>
     <div class="col-xs-12 col-md-6">
       <div class="form">
