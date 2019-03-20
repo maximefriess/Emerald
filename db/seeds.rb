@@ -9,9 +9,11 @@ Booking.destroy_all
 puts 'Creating 2 fake listings with 3 pictures...'
 
   listing = Listing.new(
-    display_name:    "Abachi",
-    location: Faker::Address.city,
-    public_listing_url: 'http://emerald-front.projtest.info/'
+    display_name:    "Chalet Abachi",
+    name: "Abachi",
+    location: "Les Gets",
+    public_listing_url: 'http://emerald-front.projtest.info/property/abachi_-_luxury_chalet_with_sauna'
+
   )
   listing.save!
 
@@ -42,9 +44,11 @@ puts 'Creating 2 fake listings with 3 pictures...'
   end
 
   listing = Listing.new(
-    display_name:    "Le Rouge Chalet Morzine",
-    location: Faker::Address.city,
-    public_listing_url: 'http://emerald-front.projtest.info/'
+    display_name:    "Chalet Le Rouge",
+    name: "Le Rouge Chalet Morzine",
+    location: "Morzine",
+    public_listing_url: 'http://emerald-front.projtest.info/property/abachi_-_luxury_chalet_with_sauna'
+
   )
   listing.save!
 
