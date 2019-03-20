@@ -48,7 +48,7 @@
             <div class="filter-category">
               <label for="year"><%= year %></label>
               <div class="round">
-                <input name="year[]" value="<%= year %>" type="checkbox" id="<%= year %>" <%= 'checked' if params[:year]&.include?(year) %> />
+                <input name="year[]" value="<%= year %>" type="checkbox" id="<%= year %>" <%= 'checked' if params[:year]&.include?(year.to_s) %> />
                 <label for="<%= year %>"></label>
               </div>
             </div>

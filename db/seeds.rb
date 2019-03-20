@@ -10,7 +10,8 @@ puts 'Creating 2 fake listings with 3 pictures...'
 
   listing = Listing.new(
     display_name:    "Abachi",
-    location: Faker::Address.city
+    location: Faker::Address.city,
+    public_listing_url: 'http://emerald-front.projtest.info/'
   )
   listing.save!
 
@@ -32,17 +33,18 @@ puts 'Creating 2 fake listings with 3 pictures...'
   4.times do
     message = Message.new(
       listing_id: listing.id,
-      title: Faker::Book.title,
-      content: Faker::Lorem.paragraph,
+      title: Faker::Marketing.buzzwords,
+      content: [Faker::Hipster.paragraph(3), Faker::Hipster.paragraph(2)].sample,
       doc_type: ['contract', 'invoice', 'other'].sample,
-      attachment: 'pdf-file.png'
+      attachment: ['pdf-file.png', Faker::LoremPixel.image("500x500")].sample
       )
     message.save!
   end
 
   listing = Listing.new(
     display_name:    "Le Rouge Chalet Morzine",
-    location: Faker::Address.city
+    location: Faker::Address.city,
+    public_listing_url: 'http://emerald-front.projtest.info/'
   )
   listing.save!
 
@@ -64,8 +66,8 @@ puts 'Creating 2 fake listings with 3 pictures...'
   4.times do
     message = Message.new(
       listing_id: listing.id,
-      title: Faker::Book.title,
-      content: Faker::Lorem.paragraphs(4),
+      title: Faker::Marketing.buzzwords,
+      content: [Faker::Hipster.paragraph(5), Faker::Hipster.paragraph(1)].sample,
       doc_type: ['contract', 'invoice', 'other'].sample,
       attachment: ['pdf-file.png', Faker::LoremPixel.image("500x500")].sample
       )
