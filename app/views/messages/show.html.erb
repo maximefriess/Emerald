@@ -1,26 +1,25 @@
 <%= render 'navbars/back_navbar' %>
 <div class="message-container">
   <div class="message-filters">
-    <span class="property-filter"><i class="fa fa-times-circle" aria-hidden="true"></i> <%= @message.listing.display_name.first(15) %></span>
-    <span class="doc-filter"><i class="fa fa-times-circle" aria-hidden="true"></i> <%= @message.doc_type %></span>
+    <span class="property-filter"><%= @message.listing.display_name.first(15) %></span>
+    <span class="doc-filter"><%= @message.doc_type %></span>
   </div>
-<div class="message-title">
-  <%= cl_image_tag @message.listing.photos.first.content, class: 'inbox-avatar' %>
-  <h4><%= @message.title %></h3>
-</div>
-<div class="message-content">
-    <p><%= @message.content %></p>
-</div>
+  <div class="message-title">
+    <%= cl_image_tag @message.listing.photos.first.content, class: 'inbox-avatar' %>
+    <h4><%= @message.title.capitalize %></h3>
+      <h6 class="date"><%= @message.created_at.strftime("%b %d, %Y") %></h6>
+  </div>
+  <div class="message-content">
+      <p><%= @message.content %></p>
+  </div>
 
-<div>
-  <% if @message.doc_type == 'invoice' || 'contract' && @message.doc_type != 'other' %>
-    <%= image_tag @message.attachment, style: 'width: 100%;', class: 'attch' %>
-  <% else %>
-    <%= nil %>
-  <% end %>
-
-  <!-- this will be changed to a cl_image_tag when we have it -->
-</div>
+  <div>
+    <% if @message.attachment.nil? %>
+      <%= nil %>
+    <% else %>
+      <%= cl_image_tag @message.attachment.file, style: 'width: 100%;', class: 'attch' %>
+    <% end %>
+  </div>
 </div>
 <%= render 'shared/footer' %>
 
