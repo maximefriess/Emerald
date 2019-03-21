@@ -5,7 +5,7 @@
       <%= cl_image_tag listing.photos.first.content, height: '280', :gravity=>"auto", :quality => "auto", :crop=>"fill", :background=>"#000000", :effect=>"gradient_fade:22", class: "card-image overlay" %>
       <%= link_to listing_path(listing), class: "show-link", :action => 'go' do %>
       <div class="card-description">
-        <div class="card-description-h2"><h2 class="m-0"><%=listing.name%></h2></div>
+        <div class="card-description-h2"><h2 class="m-0"><%=listing.display_name%></h2></div>
         <div class="card-description-p"><p><%=listing.location%></p></div>
       </div>
       <% end %>
