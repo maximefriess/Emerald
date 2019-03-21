@@ -1,12 +1,12 @@
 <%= render 'navbars/back_navbar' %>
 <div class="message-container">
   <div class="message-filters">
-    <span class="property-filter"><%= @message.listing.display_name.first(15) %></span>
+    <span class="property-filter"><%= @message.listing.display_name.first(20) %></span>
     <span class="doc-filter"><%= @message.doc_type %></span>
   </div>
   <div class="message-title">
     <%= cl_image_tag @message.listing.photos.first.content, class: 'inbox-avatar' %>
-    <h4><%= @message.title.capitalize %></h3>
+    <h4><%= @message.title %></h3>
       <h6 class="date"><%= @message.created_at.strftime("%b %d, %Y") %></h6>
   </div>
   <div class="message-content">
