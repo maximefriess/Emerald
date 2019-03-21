@@ -6,10 +6,10 @@
     <div class="header_avatar">
       <%= render 'shared/avatar' %>
     </div>
-    <% if @listing.name.size > 15 %>
-      <h4><%= @listing.name.first(12) %>...</h4>
+    <% if @listing.display_name.size > 15 %>
+      <h4><%= @listing.display_name.first(12) %>...</h4>
     <% else %>
-      <h4><%= @listing.name %></h4>
+      <h4><%= @listing.display_name %></h4>
     <% end %>
     <% if @listing.location.size > 15 %>
       <h5><%= @listing.location.first(12) %>...</h5>
@@ -21,17 +21,17 @@
   <div class="header_right_container">
     <div class="header_right_top_container">
       <div class="header_right_top_left_container">
-        <h2>€25k</h2><h5>revenue</h5>
+        <h2>€<%= BookingCalculations.new(@bookings).revenue %>k</h2><h5>revenue</h5>
       </div>
       <div class="header_right_top_right_container">
-        <h2>250</h2><h5>stays</h5>
+        <h2><%= BookingCalculations.new(@bookings).bookings_count %></h2><h5>stays</h5>
       </div>
     </div>
     <div class="header_right_bottom_container">
       <div class="header_button">
         <%= link_to 'Add stories', listing_photos_path(@listing), class: 'btn btn-yellow' %>
       </div>
-        <a class="btn btn-white" href="#">View analytics</a>
+        <%= link_to 'View analytics', bookings_path(listing_id: @listing.id), class: 'btn btn-white' %>
     </div>
   </div>
 </div>

@@ -1,0 +1,85 @@
+.analytics-card-yellow {
+  background-color: #FFDE2D;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  height: 122px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.analytics-card-grey {
+  background-color: #C3C3C3;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  width: 48%;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 10px;
+}
+
+.information-icon {
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.analytics-card-content h1 {
+  font-size: 36px;
+  font-family: $anton-font;
+  letter-spacing: 2px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.analytics-card-content-grey {
+
+  justify-content: center;
+    h1 {
+  font-size: 36px;
+  font-family: $anton-font;
+  letter-spacing: 2px;
+  padding-top: 15px;
+  padding-left: 15px;
+  text-align: center;
+  }
+}
+
+.analytics-card-content h2 {
+  font-size: 20px;
+  font-family: $open-sans-font;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: lighter;
+  color: rgba(0, 0, 0, 0.69);
+  text-align: center;
+}
+
+.analytics-card-content-grey h2 {
+  font-size: 20px;
+  font-family: $open-sans-font;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: lighter;
+  color: rgba(0, 0, 0, 0.69);
+  padding-left: 5px;
+  text-align: center;
+}
+
+.analytics-card-grey-all {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+
+
+
+
+

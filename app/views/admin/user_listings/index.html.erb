@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Add listings to this user!</h1>
+      <% if !@user_listings.nil? %>
+        <% @user_listings.each do |user_listing| %>
+          <div style="display: flex; justify-content: space-around, align-items: center, border: 1px solid black;">
+                <%= user_listing.user.first_name.capitalize + " " %>
+                <%= user_listing.user.last_name.capitalize + " |" %>
+                <%= user_listing.listing.display_name %>
+          </div>
+        <% end %>
+      <% else %>
+        <h2>Select listing from Dropdown!</h2>
+      <% end %>
+
+      <%= simple_form_for [:admin, @user, @user_listing] do |f| %>
+      <%= f.input :listing_id, collection: @listings %>
+      <button>
+        <%= f.submit "Add this listing to user" %>
+      </button>
+      <% end %>
+      <button>
+        <%= link_to "Go back to Users page", admin_users_path, :action => 'go' %>
+      </button>
+    </div>
+  </div>
+</div>
+
+

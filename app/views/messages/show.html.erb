@@ -1,25 +1,25 @@
 <%= render 'navbars/back_navbar' %>
 <div class="message-container">
   <div class="message-filters">
-    <span class="property-filter"><i class="fa fa-times-circle" aria-hidden="true"></i> Property</span>
-    <span class="doc-filter"><i class="fa fa-times-circle" aria-hidden="true"></i> Document</span>
+    <span class="property-filter"><%= @message.listing.display_name.first(15) %></span>
+    <span class="doc-filter"><%= @message.doc_type %></span>
   </div>
-<div class="message-title">
-  <%= cl_image_tag @message.listing.photos.first.content, class: 'inbox-avatar' %>
-  <h4><%= @message.title %></h3>
-</div>
-<div class="message-content">
-    <p><%= @message.content %></p>
-</div>
-
-<div>
-  <% #if @message.doc_type.nil? %>
-  <%= image_tag 'pdf-file.png', style: 'width: 100%;' %>
-  <% # else %>
-  <%#= image_tag @message.doc_type, style: 'width: 100%;' %>
-  <!-- this will be changed to a cl_inage_tag when we have it -->
-    <%# end %>
-</div>
+  <div class="message-title">
+    <%= cl_image_tag @message.listing.photos.first.content, class: 'inbox-avatar' %>
+    <h4><%= @message.title.capitalize %></h3>
+      <h6 class="date"><%= @message.created_at.strftime("%b %d, %Y") %></h6>
+  </div>
+  <div class="message-content">
+      <p><%= @message.content %></p>
+  </div>
+  <div>
+    <% if !@message.attachment.nil? %>
+      <%= link_to @message.attachment.url, target: "_blank" do %>
+        <%= image_tag @message.attachment.url(:thumb), class:"thumb" %>
+      <% end %>
+    <% else %>
+    <% end %>
+  </div>
 </div>
 <%= render 'shared/footer' %>
 

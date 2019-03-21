@@ -1,48 +1,67 @@
 .message-container {
   margin: 10px;
   padding: 10px;
-  border: 1px solid $gray;
+  border: 0.5px solid $light-gray;
 }
 
-
+.date {
+  font-size: 12px;
+  position: absolute;
+  top: 160px;
+  right: 30px;
+}
 .message-title {
   margin: 5px;
-  padding: 10px;
+  padding: 5px;
   display: flex;
+  padding-top: 5px;
   h4 {
     font-weight: 700;
-    padding-left: 15px;
+    padding-left: 5px;
     text-decoration: underline;
     font-size: 18px;
-    padding-top: 20px;
   }
 }
-
 .message-content {
   margin: 10px;
   padding: 5px;
 }
-
 .message-filters {
   display: flex;
   justify-content: left;
-  flex-flow: wrap row;
+  flex-flow: nowrap row;
   align-items: center;
 }
 
 .property-filter {
-  padding: 5px;
+  padding: 2px 6px;
   background-color: $yellow;
   margin: 5px;
   border-radius: 5px;
-  display: flex-item;
+  font-size: 10px;
+  font-weight: bold;
 }
 
 .doc-filter {
-  padding: 5px;
+  padding: 2px 6px;
   border-radius: 5px;
   background-color: #81D2C7;
   margin: 5px;
-  display: flex-item;
+  font-size: 10px;
+  font-weight: bold;
+}
 
+.inbox-avatar {
+  border-radius: 50%;
+  border: 0.5px solid $light-gray;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 90px;
+  right: 25px;
+}
+
+
+.thumb {
+  margin-top: 40px;
 }

@@ -1,0 +1,99 @@
+#tab {
+  color: black;
+  opacity: 0.7;
+  padding: 10px;
+  font-family: $open-sans-font;
+  font-size: 14px;
+}
+.in {
+  display: none;
+}
+.active.tab-pane {
+  display: block !important;
+}
+.nav-tabs {
+  border-bottom: none;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+#month {
+  max-height: 300px;
+  overflow: scroll !important;
+}
+
+#property {
+  max-height: 300px;
+  overflow: scroll !important;
+}
+#documents {
+  max-height: 300px;
+  overflow: scroll !important;
+}
+#years {
+  max-height: 300px;
+  overflow: scroll !important;
+}
+#tab.active {
+  border-bottom: 2px solid $yellow;
+  opacity: 1;
+}
+input[type="submit" i] {
+  border: none;
+}
+input[type="checkbox"] {
+  border-radius: 50%;
+  background-color: $black;
+}
+.inbox-btn-yellow {
+  font-family: $anton-font;
+  font-size: 22px;
+  color: $black;
+  background-color: $yellow;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+label {
+  font-family: $open-sans-font;
+  font-size: 14px;
+}
+
+  #filter-bar {
+    display: flex;
+    border: 0.5px solid $light-gray;
+    img {
+      margin: 5px;
+      height: 40px;
+    }
+  }
+.inbox-filter-menu {
+  display: flex;
+  flex-flow: row wrap;
+  border: 0.5px solid $light-gray;
+  position: fixed;
+  z-index: 99;
+  background: white;
+  width: 92%;
+}
+.filter-category {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  height: 50px;
+  padding: 10px;
+  width: 100%;
+  border-bottom: 0.5px solid $light-gray;
+  p {
+    padding: 5px;
+    margin-left: 10px;
+    font-size: 12px;
+  }
+  img{
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+  }
+}
