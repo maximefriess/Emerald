@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row ">
+    <col-xs-12>
+      <%= simple_form_for [:admin, @message] do |f| %>
+        <%= f.input :title %>
+        <%= f.input :content %>
+        <%= f.input :doc_type, collection: ["contract", "invoice", "other"] %>
+        <%= f.input :listing_id, collection: @display_names %>
+        <%= f.file_field :attachment %>
+        <%= f.submit 'Create Message' %>
+      <% end %>
+    </col-xs-12>
+  </div>
+</div>

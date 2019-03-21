@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_14_101430) do
+ActiveRecord::Schema.define(version: 2019_03_19_135256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "month"
+    t.float "revenue"
+    t.float "occupancy_ratio"
+    t.float "average_night_rate"
+    t.bigint "listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "year"
+    t.index ["listing_id"], name: "index_bookings_on_listing_id"
+  end
 
   create_table "listings", force: :cascade do |t|
     t.string "name"
@@ -21,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_03_14_101430) do
     t.string "public_listing_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "display_name"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -30,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_03_14_101430) do
     t.string "doc_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "attachment"
     t.index ["listing_id"], name: "index_messages_on_listing_id"
   end
 
@@ -63,10 +77,12 @@ ActiveRecord::Schema.define(version: 2019_03_14_101430) do
     t.string "last_name"
     t.string "phone_number"
     t.string "photo"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "listings"
   add_foreign_key "messages", "listings"
   add_foreign_key "photos", "listings"
   add_foreign_key "user_listings", "listings"

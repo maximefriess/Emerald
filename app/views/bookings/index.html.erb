@@ -1,0 +1,54 @@
+<%= render 'navbars/back_navbar' %>
+  <div class="container inbox">
+    <div id="analytics-filter-bar">
+    <%= image_tag 'filter-icon.png' %>
+  </div>
+  <div class="hidden analytics-filter-menu" >
+    <ul class="nav nav-tabs" role="tab-list">
+      <li role="presentation" class="active" ><a id="tab" href="#property" data-toggle="tab" role="tab" aria-controls="property" class="active">Property</a></li>
+      <li role="presentation"><a href="#month" id="tab" aria-controls="month" data-toggle="tab" role="tab">Month</a></li>
+      <li role="presentation"><a href="#year" id="tab" aria-controls="year" data-toggle="tab" role="tab">Year</a></li>
+    </ul>
+    <div style="width: 100%" >
+      <form action="/bookings" method="get">
+          <div role="tab-panel" class="tab-pane show fade in active" id="property">
+            <% @listings.each do |listing| %>
+              <div class="filter-category">
+                <label for="listing_id"><%= listing.display_name %></label>
+                <div class="round">
+                  <input name="listing_id[]" value="<%= listing.id %>" type="checkbox" id="<%= listing.id %>" <%= 'checked' if params[:listing_id]&.include?(listing.id.to_s) %> />
+                  <label for="<%= listing.id %>"></label>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <div role="tab-panel" class="tab-pane fade in" id="month">
+          <% @months.each do |key, value| %>
+            <div class="filter-category">
+              <label for="month"><%= value %></label>
+              <div class="round">
+                <input name="month[]" value="<%= key %>" type="checkbox" id="<%= key %>" <%= 'checked' if params[:month]&.include?(key) %> />
+                <label for="<%= key %>"></label>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div role="tab-panel" class="tab-pane fade in" id="year">
+          <% @years.each do |year| %>
+            <div class="filter-category">
+              <label for="year"><%= year %></label>
+              <div class="round">
+                <input name="year[]" value="<%= year %>" type="checkbox" id="<%= year %>" <%= 'checked' if params[:year]&.include?(year.to_s) %> />
+                <label for="<%= year %>"></label>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <input type="submit" value="OK" class="inbox-btn-yellow" />
+    </div>
+
+  </div>
+
+    <%= render 'shared/analytics_card' %>
+  </div>
+<%= render 'shared/footer' %>

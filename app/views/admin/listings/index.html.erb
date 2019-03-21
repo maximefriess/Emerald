@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Current listings</h1>
+      <% @listings.each do |listing| %>
+        <div style="display: flex;">
+            <div style="margin: 0px 5px;">
+              <%= listing.display_name + " |" %>
+            </div>
+            <div>
+              <%= listing.location + " |" %>
+            </div>
+            <div style="margin: 0px 5px;">
+              <%= listing.public_listing_url + " |" %>
+            </div>
+            <!-- Checks if listing has an associated booking -->
+            <div>
+              <% if !listing.name.nil? %>
+                <p>Has bookings</p>
+              <% else %>
+                <p>Has no bookings</p>
+              <% end %>
+            </div>
+            <div style="margin: 0px 5px;">
+              <%= link_to "Edit", edit_admin_listing_path(listing), :action => 'go' %>
+            </div>
+            <div>
+              <%= link_to "Delete", admin_listing_path(listing), :method => 'delete', :data => { :listing_id => listing.id } %>
+            </div>
+        </div>
+      <% end %>
+      <button>
+        <%= link_to "Add a new listing", new_admin_listing_path %>
+      </button>
+      <button>
+        <%= link_to "Go back to Admin panel", admin_path, :action => 'go'%>
+      </button>
+    </div>
+  </div>
+</div>
