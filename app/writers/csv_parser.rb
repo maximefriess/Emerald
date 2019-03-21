@@ -26,6 +26,7 @@ class CsvParser
   end
 
   def create_bookings
+    Booking.destroy_all
     @raw_parsed.each do |booking|
       if Listing.find_by(name: booking[:name])
         booking = Booking.new(
