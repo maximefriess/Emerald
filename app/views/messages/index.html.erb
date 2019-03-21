@@ -52,7 +52,7 @@
     </div>
   </div>
 
-  <% @messages.each do |message| %>
+  <% @messages.order(created_at: :desc).each do |message| %>
     <%= link_to message_path(message), "data-type" => message.doc_type  do %>
       <div class="inbox-card">
         <div class="message-body">

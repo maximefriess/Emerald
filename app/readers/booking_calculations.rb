@@ -2,6 +2,7 @@ class BookingCalculations
   def initialize(bookings)
     # bookings is an array
     @bookings = bookings
+    @count = @bookings.count
   end
 
   def revenue
@@ -20,27 +21,26 @@ class BookingCalculations
 
   def occupancy
     occupancy = 0
+    unique_months = @bookings.pluck(:month, :year).uniq.count
+    unique_listings = @bookings.pluck(:listing_id).uniq.count
     @bookings.each do |booking|
       if booking.occupancy_ratio
-        occupancy += booking.occupancy_ratio
+        occupancy += booking.occupancy_ratio/unique_months/unique_listings
       end
     end
+
     occupancy.round
   end
 
   def average_rate
     sum = 0
-    counter = 0
-    @bookings.each do |booking|
-      if booking.average_night_rate
-        sum += booking.average_night_rate
-        counter += 1
+    if @count > 0
+      @bookings.each do |booking|
+        if booking.average_night_rate
+          sum += booking.average_night_rate
+        end
       end
-    end
-    if counter = 0
-      return 0
-    else
-      average = (sum / counter).round
+      average = (sum / @count).round
     end
   end
 end
