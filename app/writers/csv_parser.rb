@@ -9,13 +9,18 @@ class CsvParser
       else
         revenue = row['Accomodation Rev']
       end
+      if row['Average Night rate 2']
+        avg = row['Average Night rate 2'].gsub(/[ €]/, '').to_f
+      else
+        avg = row['Average Night rate 2']
+      end
       @raw_parsed << {
         name: row['Properties'],
         year: row[row.headers.first],
         month: row['Mois'],
         revenue: revenue,
         occupancy_ratio: row['Occpancy Ratio'].to_f,
-        average_night_rate: row['Average Night rate 2'].to_f
+        average_night_rate: avg
       }
     end
   end
