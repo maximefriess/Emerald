@@ -13,12 +13,11 @@
       <p><%= @message.content %></p>
   </div>
   <div>
-    <% if @message.attachment.nil? %>
-      <%= nil %>
+    <% if !@message.attachment.nil? %>
+      <%= link_to @message.attachment.url, target: "_blank" do %>
+        <%= image_tag @message.attachment.url(:thumb), class:"thumb" %>
+      <% end %>
     <% else %>
-    <%= link_to @message.attachment.url, target: "_blank" do %>
-      <%= image_tag @message.attachment.url(:thumb) %>
-    <% end %>
     <% end %>
   </div>
 </div>
